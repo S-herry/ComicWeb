@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-weight: normal;
+  }
+}
+.Purple-bg {
+  background-color: theme("colors.ColorPurple");
+}
+.Red-bg {
+  background-color: theme("colors.ColorRed");
+}
+.Yellow-bg {
+  background-color: theme("colors.ColorYellow");
+}
+.Green-bg {
+  background-color: theme("colors.ColorGreen");
+}
+.Purple-Text {
+  color: theme("colors.ColorPurple");
+}
+.Red-Text {
+  color: theme("colors.ColorRed");
+}
+.Yellow-Text {
+  color: theme("colors.ColorYellow");
+}
+.Green-Text {
+  color: theme("colors.ColorGreen");
+}
+code {
+  font-family: courier, monospace;
+}
+
+#root {
+  background-image: url("https://file.moyublog.com/d/file/2024-02-10/30785efc3b5484efb33494b6ab0ce966.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-attachment: fixed;
+}
+.holidayBook {
+  width: 100%;
+  height: 250px;
+}
