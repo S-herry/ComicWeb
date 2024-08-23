@@ -19,7 +19,7 @@ const Layout = () => {
 
   return (
     <>
-      <nav className="shadow-lg bg-black">
+      <nav className="shadow-lg bg-black sticky top-0 z-40 w-full">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4">
           <div className="flex">
             <Link
@@ -104,13 +104,14 @@ const Layout = () => {
             創作者平台
           </Link>
         </div>
+        <ComicTags
+          actionTab={actionTab}
+          hidden={hidden}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        />
       </nav>
-      <ComicTags
-        actionTab={actionTab}
-        hidden={hidden}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-      />
+
       <main>
         <Outlet />
       </main>

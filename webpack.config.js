@@ -68,6 +68,19 @@ module.exports = (env, argv) => {
             },
           ],
         },
+        {
+          test: /\.(png|jpg|gif|jpe?g|svg)$/,
+          use: [
+            {
+              loader: "file-loader",
+              options: {
+                name: "[name].[ext]",
+                publicPath: "./image",
+                outputPath: "./image",
+              },
+            },
+          ],
+        },
       ],
     },
     optimization: {

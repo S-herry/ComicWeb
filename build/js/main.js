@@ -8379,12 +8379,14 @@ const Button = _ref => {
     type = "button",
     onClick,
     className,
-    children
+    children,
+    props
   } = _ref;
   return /*#__PURE__*/(0,jsx_runtime.jsx)("button", {
     type: type,
     onClick: onClick,
-    className: `block  rounded font-semibold transition-all ${className}`,
+    className: `block   font-semibold transition-all ${className}`,
+    ...props,
     children: children
   });
 };
@@ -8775,16 +8777,16 @@ const Login = () => {
 /* harmony default export */ const pages_Login = (Login);
 ;// CONCATENATED MODULE: ./src/json/image.json
 const image_namespaceObject = /*#__PURE__*/JSON.parse('[{"name":"coco","url":"https://png.pngtree.com/thumb_back/fw800/back_our/20190628/ourmid/pngtree-original-beautiful-gradient-star-banner-poster-background-image_276641.jpg"},{"name":"Orphan: First Kill","url":"https://img.lovepik.com/photo/50086/2215.jpg_wh860.jpg"},{"name":"Top Gun: Maverick","url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlFN-nZq2movNQDTl487rYp7pD8OuVeeLb1IaO2l-y4tpLtI7fNPTStMjVafD1QpXzig&usqp=CAU"}]');
-;// CONCATENATED MODULE: ./src/components/other/Carousel.jsx
+;// CONCATENATED MODULE: ./src/components/Carousel/Carousel.jsx
 
 
 
 
 
 const Carousel = () => {
-  const [currentIndex, setCurrentIndex] = (0,react.useState)("刀刀");
+  const [currentIndex, setCurrentIndex] = (0,react.useState)("coco");
   return /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
-    className: "w-full  bg-stone-900 px-5 py-10",
+    className: " bg-stone-900 px-5 py-10",
     children: [/*#__PURE__*/(0,jsx_runtime.jsx)("ul", {
       className: "flex justify-center items-center overflow-x-auto ",
       children: image_namespaceObject.map(movie => /*#__PURE__*/(0,jsx_runtime.jsxs)("li", {
@@ -8804,125 +8806,367 @@ const Carousel = () => {
     }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
       className: " flex  justify-center items-center mt-3",
       children: image_namespaceObject.map(movie => /*#__PURE__*/(0,jsx_runtime.jsx)(common_Button, {
-        className: `${currentIndex === movie.name ? "bg-orange-400" : "bg-white"} py-1 px-3 m-1`,
+        className: `${currentIndex === movie.name ? "bg-orange-400" : "bg-white"} py-1 px-3 m-1 rounded-md`,
         onClick: () => setCurrentIndex(movie.name)
       }, movie.url))
     })]
   });
 };
-/* harmony default export */ const other_Carousel = (Carousel);
-;// CONCATENATED MODULE: ./src/components/other/Typewriter.jsx
+/* harmony default export */ const Carousel_Carousel = (Carousel);
+;// CONCATENATED MODULE: ./src/data/Comic Content/Easy.json
+const Easy_namespaceObject = /*#__PURE__*/JSON.parse('{"manga":[{"id":1,"title":"貓咪咖啡館的日常","image":"https://cdn.pixabay.com/photo/2022/08/27/09/16/design-7414038_1280.jpg","description":"小春在一間貓咪咖啡館打工，每天都被可愛的貓咪和顧客們的趣事圍繞。","category":"治癒","is_completed":false},{"id":2,"title":"鄉村小屋的悠閒時光","image":"https://live.staticflickr.com/659/20906730856_efc2f66b68_c.jpg","description":"都市女孩紗羅搬到鄉下的小屋，開始了種菜、做飯和與自然共處的放鬆生活。","category":"田園","is_completed":true},{"id":3,"title":"快樂的甜點時光","image":"https://image.cdn2.seaart.ai/2024-03-19/cnstrm5e878c73bvgheg/b6498ddc746ed2bf432e40a0d657ebdbc8e2de8e_high.webp","description":"甜點師莉奈和她的朋友們在甜品店裡一起創作美味的甜點，享受每一個快樂的瞬間。","category":"美食","is_completed":false},{"id":4,"title":"午后的午後茶","image":"https://image.cdn2.seaart.ai/2024-01-20/cmm1u9te878c73a8u840/cdc357eb1624badb58077ecadf6f92b50ac05871_high.webp","description":"小夏和朋友們定期舉辦下午茶聚會，分享生活中的小確幸和甜點。","category":"友情","is_completed":true},{"id":5,"title":"在街角的小書店","image":"https://images.vocus.cc/a1d70142-16c6-4c38-affc-dcfd9c42bdaa.jpg","description":"小智在街角經營一家小書店，和顧客們分享書籍的樂趣與故事。","category":"文學","is_completed":false},{"id":6,"title":"鄰居家的小狗","image":"https://thumbs.dreamstime.com/b/%E5%A4%8D%E5%8F%A4%E6%BC%AB%E5%A8%81%E6%BC%AB%E7%94%BB%E5%B0%81%E9%9D%A2-%E5%8D%A1%E5%B0%94%E5%8A%A0%E9%87%8C%E9%98%BF%E5%B0%94%E4%BC%AF%E5%A1%94%E7%9C%81-%E5%B9%B4-%E6%9C%88-%E6%97%A5-278618265.jpg","description":"小圓每天都去拜訪鄰居家的小狗，逐漸成為牠最好的朋友。","category":"動物","is_completed":true}]}');
+;// CONCATENATED MODULE: ./src/components/common/Tab.jsx
+
+const Tab = _ref => {
+  let {
+    label,
+    className = "border-orange-300 text-orange-300"
+  } = _ref;
+  return /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+    className: `font-bold border-2 rounded-md text-xs px-1 py-0.5 ${className}`,
+    children: label
+  });
+};
+/* harmony default export */ const common_Tab = (Tab);
+;// CONCATENATED MODULE: ./src/components/FreeComic/FreeCard.jsx
+
+
+
+const FreeCard = _ref => {
+  let {
+    title,
+    category,
+    image,
+    is_completed,
+    description
+  } = _ref;
+  return /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+    className: " bg-slate-800 w-full  flex  flex-col  rounded-md  relative m-3",
+    children: [/*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+      className: "w-full flex justify-center items-center p-2",
+      children: /*#__PURE__*/(0,jsx_runtime.jsx)("img", {
+        src: image,
+        alt: "",
+        className: " w-11/12 h-56 object-cover "
+      })
+    }), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+      className: "w-full flex justify-center ps-2 pt-2 flex-col",
+      children: [/*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+        className: "px-4",
+        children: [/*#__PURE__*/(0,jsx_runtime.jsx)(common_Tab, {
+          label: category,
+          className: " border-pink-600 text-pink-200"
+        }), /*#__PURE__*/(0,jsx_runtime.jsx)(common_Tab, {
+          label: is_completed ? "完結" : "連載中",
+          className: "mx-2 text-white"
+        })]
+      }), /*#__PURE__*/(0,jsx_runtime.jsx)("p", {
+        className: " text-white  font-bold px-4 py-2",
+        children: title
+      })]
+    })]
+  });
+};
+/* harmony default export */ const FreeComic_FreeCard = (FreeCard);
+;// CONCATENATED MODULE: ./src/components/FreeComic/FreeComic.jsx
+
+
+
+
+
+const FreeComic = () => {
+  const [bookTabData, setBookTabData] = (0,react.useState)(Easy_namespaceObject);
+  return /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+    className: " bg-white mt-8 mb-5 rounded-md flex flex-col  px-3 w-9/12",
+    children: [/*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+      className: "flex ",
+      children: [/*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+        className: "m-2 flex justify-center items-center",
+        children: /*#__PURE__*/(0,jsx_runtime.jsx)("p", {
+          className: " text-2xl font-bold ms-2",
+          children: "\u8D85\u591A\u514D\u8CBB\u6F2B\u756B\u4EFB\u4F60\u770B\u3000\u9EDE\u64CA\u300C\u63DB\u4E00\u6279\u300D\u627E\u597D\u66F8"
+        })
+      }), /*#__PURE__*/(0,jsx_runtime.jsxs)(Link, {
+        className: "ms-auto flex justify-center items-center  no-underline text-black\r hover:text-slate-500 hover:border-slate-500 border-slate-800 rounded-md border-2 mx-3 my-2 p-2",
+        children: [/*#__PURE__*/(0,jsx_runtime.jsx)("p", {
+          className: "flex text-base pe-1 font-bold",
+          children: /*#__PURE__*/(0,jsx_runtime.jsx)("svg", {
+            className: "w-6 h-6 text-gray-800 dark:text-white ",
+            "aria-hidden": "true",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            viewBox: "0 0 20 18",
+            children: /*#__PURE__*/(0,jsx_runtime.jsx)("path", {
+              stroke: "currentColor",
+              strokeLinecap: "round",
+              strokeLinejoin: "round",
+              strokeWidth: "2",
+              d: "m1 14 3-3m-3 3 3 3m-3-3h16v-3m2-7-3 3m3-3-3-3m3 3H3v3"
+            })
+          })
+        }), /*#__PURE__*/(0,jsx_runtime.jsx)("p", {
+          className: "text-md",
+          children: "\u63DB\u4E00\u6279"
+        })]
+      })]
+    }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+      className: `flex flex-wrap lg:flex-nowrap justify-center items-center  lg:rounded-tr-none p-3`,
+      children: bookTabData.manga.map((item, index) => {
+        return /*#__PURE__*/(0,jsx_runtime.jsx)(FreeComic_FreeCard, {
+          title: item.title,
+          image: item.image,
+          category: item.category,
+          is_completed: item.is_completed,
+          description: item.description
+        }, item.id);
+      })
+    })]
+  });
+};
+/* harmony default export */ const FreeComic_FreeComic = (FreeComic);
+;// CONCATENATED MODULE: ./src/components/Marquee/Typewriter.jsx
 
 
 const Typewriter = () => {
-  return /*#__PURE__*/(0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
-    children: /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
-      className: " bg-yellow-300  rounded-md p-3 w-3/4 flex",
-      children: [/*#__PURE__*/(0,jsx_runtime.jsxs)("p", {
-        className: "flex",
-        children: [/*#__PURE__*/(0,jsx_runtime.jsx)(common_Button, {
-          className: "px-2 bg-black text-white mx-3",
-          children: "\u516C\u544A"
-        }), /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
-          children: "\u721B\u8CA8\u7FD2\u4F5C\u7684\u9A5A\u609A\u5DE8\u4F5C\u300A\u5B64\u6751\u8349\u4EBA\u300B \u70BA\u4E86\u6D3B\u4E0B\u53BB\u4ED6\u5011\u88AB\u8FEB\u73A9\u4E00\u5834\u72E9\u7375\u904A\u6232"
-        })]
-      }), /*#__PURE__*/(0,jsx_runtime.jsxs)("p", {
-        className: "flex",
-        children: [/*#__PURE__*/(0,jsx_runtime.jsx)(common_Button, {
-          className: "px-2 bg-black text-white mx-3",
-          children: "\u516C\u544A"
-        }), /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
-          children: "\u721B\u8CA8\u7FD2\u4F5C\u7684\u9A5A\u609A\u5DE8\u4F5C\u300A\u5B64\u6751\u8349\u4EBA\u300B \u70BA\u4E86\u6D3B\u4E0B\u53BB\u4ED6\u5011\u88AB\u8FEB\u73A9\u4E00\u5834\u72E9\u7375\u904A\u6232"
-        })]
-      })]
-    })
-  });
-};
-/* harmony default export */ const other_Typewriter = (Typewriter);
-;// CONCATENATED MODULE: ./src/components/common/Card.jsx
-
-const Card = () => {
   return /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
-    className: " bg-slate-800 w-52 pb-3 mx-5",
-    children: [/*#__PURE__*/(0,jsx_runtime.jsx)("img", {
-      src: "https://www.themoviedb.org/t/p/w220_and_h330_face/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg",
-      alt: "",
-      className: " h-56 w-full"
-    }), /*#__PURE__*/(0,jsx_runtime.jsx)("p", {
-      className: " text-white  font-bold px-4",
-      children: "coco\u96FB\u5F71"
-    }), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
-      className: "px-4",
-      children: [/*#__PURE__*/(0,jsx_runtime.jsx)("span", {
-        className: " border-orange-300 font-bold text-orange-300 border-2 rounded-md text-xs px-1 py-0.5",
-        children: "\u5B8C\u7D50"
+    className: " bg-yellow-300  rounded-md p-3 w-3/4 flex mt-8 mb-5",
+    children: [/*#__PURE__*/(0,jsx_runtime.jsxs)("p", {
+      className: "flex",
+      children: [/*#__PURE__*/(0,jsx_runtime.jsx)(common_Button, {
+        className: "px-2 bg-black text-white mx-3",
+        children: "\u516C\u544A"
       }), /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
-        className: "mx-2 border-orange-300 font-bold text-orange-300 border-2 rounded-md text-xs px-1 py-0.5",
-        children: "\u5B8C\u7D50"
+        children: "\u721B\u8CA8\u7FD2\u4F5C\u7684\u9A5A\u609A\u5DE8\u4F5C\u300A\u5B64\u6751\u8349\u4EBA\u300B \u70BA\u4E86\u6D3B\u4E0B\u53BB\u4ED6\u5011\u88AB\u8FEB\u73A9\u4E00\u5834\u72E9\u7375\u904A\u6232"
+      })]
+    }), /*#__PURE__*/(0,jsx_runtime.jsxs)("p", {
+      className: "flex",
+      children: [/*#__PURE__*/(0,jsx_runtime.jsx)(common_Button, {
+        className: "px-2 bg-black text-white mx-3",
+        children: "\u516C\u544A"
+      }), /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+        children: "\u721B\u8CA8\u7FD2\u4F5C\u7684\u9A5A\u609A\u5DE8\u4F5C\u300A\u5B64\u6751\u8349\u4EBA\u300B \u70BA\u4E86\u6D3B\u4E0B\u53BB\u4ED6\u5011\u88AB\u8FEB\u73A9\u4E00\u5834\u72E9\u7375\u904A\u6232"
       })]
     })]
   });
 };
-/* harmony default export */ const common_Card = (Card);
-;// CONCATENATED MODULE: ./src/components/other/HolidayBookList.jsx
+/* harmony default export */ const Marquee_Typewriter = (Typewriter);
+;// CONCATENATED MODULE: ./src/components/Recommended/RecommendCard.jsx
 
 
 
-const HolidayBookList = () => {
+const RecommendCard = _ref => {
+  let {
+    title,
+    category,
+    image,
+    is_completed,
+    description
+  } = _ref;
   return /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
-    className: "bg-white  w-3/4 rounded-md mb-10 flex",
+    className: " bg-slate-800 w-full  flex  flex-col  rounded-md  relative m-3",
     children: [/*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
-      className: " w-1/6 m-8",
-      children: [/*#__PURE__*/(0,jsx_runtime.jsx)(Link, {
-        to: "#",
-        children: /*#__PURE__*/(0,jsx_runtime.jsx)("img", {
-          src: "https://cdn.pixabay.com/photo/2023/02/15/06/08/hypnosis-7791027__480.jpg",
-          className: "holidayBook mb-2",
-          draggable: "false"
-        })
-      }), /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
-        className: " border-orange-300 font-bold text-orange-300 border-2 rounded-md text-xs px-1 py-0.5",
-        children: "\u5B8C\u7D50"
-      }), /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
-        className: " border-stone-800 font-bold border-2 rounded-md m-2 text-xs px-1 py-0.5",
-        children: "\u5DF2\u5B8C\u7D50"
-      }), /*#__PURE__*/(0,jsx_runtime.jsx)("h3", {
-        className: " text-lg font-bold",
-        children: "\u6843\u82B1\u4EF2\u4ECB\u4E8B\u52D9\u6240"
-      }), /*#__PURE__*/(0,jsx_runtime.jsx)("small", {
-        className: " text-wrap text-xs",
-        children: "\u4E0D\u7518\u5FC3\u81EA\u5DF1\u82F1\u5E74\u65E9\u901D\u7684\u5DE5\u7A0B\u5E2B\u738B\u96C1\u541B\uFF0C\u62D2\u7D55\u6295\u80CE\u4E26\u4E14\u6C7A\u5FC3\u52A0\u5165\u6843\u82B1\u4EF2\u4ECB\u4E8B\u52D9\u6240\uFF0C\u6210\u70BA\u6708\u8001\u5BE6..."
+      className: " absolute rounded-md  w-full h-full opacity-0 hover:opacity-90 hover:bg-gray-700 flex justify-center items-center p-5 text-white font-normal flex-col",
+      children: [/*#__PURE__*/(0,jsx_runtime.jsx)("p", {
+        children: description
+      }), /*#__PURE__*/(0,jsx_runtime.jsx)(Link, {
+        className: "mt-auto ms-auto text-white ",
+        children: "\u95B1\u8B80\u6F2B\u756B"
       })]
+    }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+      className: "w-full flex justify-center items-center p-2",
+      children: /*#__PURE__*/(0,jsx_runtime.jsx)("img", {
+        src: image,
+        alt: "",
+        className: " w-11/12 h-56 object-cover "
+      })
     }), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
-      children: [/*#__PURE__*/(0,jsx_runtime.jsx)("h2", {
-        className: " text-2xl font-bold my-8",
-        children: "\u4E03\u5915\u60C5\u4EBA\u7BC0\u5C08\u5C6C\u66F8\u55AE\u3000\u9D72\u6A4B\u570D\u89C0\u5340\u4E0D\u65E5\u958B\u653E\u4E2D"
-      }), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
-        className: "flex",
-        children: [/*#__PURE__*/(0,jsx_runtime.jsx)(common_Card, {}), /*#__PURE__*/(0,jsx_runtime.jsx)(common_Card, {}), /*#__PURE__*/(0,jsx_runtime.jsx)(common_Card, {}), /*#__PURE__*/(0,jsx_runtime.jsx)(common_Card, {})]
+      className: "w-full flex justify-center ps-2 pt-2 flex-col",
+      children: [/*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+        className: "px-4",
+        children: [/*#__PURE__*/(0,jsx_runtime.jsx)(common_Tab, {
+          label: category,
+          className: " border-pink-600 text-pink-200"
+        }), /*#__PURE__*/(0,jsx_runtime.jsx)(common_Tab, {
+          label: is_completed ? "完結" : "連載中",
+          className: "mx-2 text-white"
+        })]
+      }), /*#__PURE__*/(0,jsx_runtime.jsx)("p", {
+        className: " text-white  font-bold px-4 py-2",
+        children: title
       })]
     })]
   });
 };
-/* harmony default export */ const other_HolidayBookList = (HolidayBookList);
+/* harmony default export */ const Recommended_RecommendCard = (RecommendCard);
+;// CONCATENATED MODULE: ./src/data/Comic Content/ValentineDay.json
+const ValentineDay_namespaceObject = /*#__PURE__*/JSON.parse('{"manga":[{"id":1,"title":"星夜下的秘密花園","image":"https://www.tohan.com.tw/data/goods/gallery_org/202204/1650935750951693245.jpg","description":"綾音發現了一個夜晚才會出現的奇幻花園，並遇見了守護者蓮，展開跨越時空的愛戀。","category":"幻想愛情","is_completed":false},{"id":2,"title":"雨中的甜蜜旋律","image":"https://www.books.com.tw/img/001/067/02/0010670201.jpg","description":"美琴遇見神秘少年奏一，在雨天的咖啡館中重新燃起對鋼琴的熱愛，決心挑戰音樂比賽。","category":"校園愛情","is_completed":false},{"id":3,"title":"那天，我們一起看星星","image":"https://img.acgn.cc/img/430600/430506/1.jpg","description":"夏月和好友們參加觀星活動，共同度過了難忘的青春夏天，並找到了屬於自己的未來。","category":"青春成長","is_completed":true},{"id":4,"title":"櫻花飄落的約定","image":"https://image.cdn2.seaart.ai/2024-01-21/cmmpe55e878c73bh24ng/2462a96139c1b31a8758cf9446b1b8bb7da0c200_high.webp","description":"遙子遇見尋找童年約定的湊，隨著記憶重現，他們的命運被緊密相連。","category":"浪漫愛情","is_completed":false},{"id":5,"title":"光與影的交錯","image":"https://i.pinimg.com/236x/44/64/2c/44642cd787189e18f2d679dbb8ab1cba.jpg","description":"冷漠的紫苑能看到他人內心陰影，與學長光也的相遇讓她重新認識自己。","category":"神秘愛情","is_completed":true},{"id":6,"title":"夢境中的他和她","image":"https://gd-hbimg.huaban.com/5d1f58c41fc08f2be3b4b1e5310b7865639c1011b947-HItUUf_fw658","description":"真奈夢見未來將發生的事，直到遇見與夢中少年相似的轉學生晴斗。","category":"奇幻愛情","is_completed":false}]}');
+;// CONCATENATED MODULE: ./src/data/Comic Content/RomanticLove.json
+const RomanticLove_namespaceObject = /*#__PURE__*/JSON.parse('{"manga":[{"id":1,"title":"夏日微風的告白","image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4K9hoMznJYTCULst68d4cliWGV49AA8hB9g&s","description":"高中生陽奈在暑假中鼓起勇氣向青梅竹馬的拓海告白，他們的關係因此發生了微妙的變化。","category":"浪漫愛情","is_completed":true},{"id":2,"title":"冬夜下的牽絆","image":"https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088921310/1200/9784088921310.jpg","description":"在雪花飄落的城市中，紗雪和凌意外重逢，他們之間未解的情感再次浮現。","category":"浪漫愛情","is_completed":false},{"id":3,"title":"雨中的秘密約定","image":"https://i0.wp.com/acp.idv.tw/wp-content/uploads/444487862_476444194917286_4257625653180151509_n.jpg?ssl=1","description":"莉音和修輔在大學校園裡的一場雨中重新相遇，並重溫了他們在高中時期的秘密約定。","category":"浪漫愛情","is_completed":true},{"id":4,"title":"晨光中的愛戀","image":"https://upload.wikimedia.org/wikipedia/zh/thumb/1/14/%E7%A7%81%E3%81%9F%E3%81%A1%E3%81%AF%E3%81%A9%E3%81%86%E3%81%8B%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B.jpg/220px-%E7%A7%81%E3%81%9F%E3%81%A1%E3%81%AF%E3%81%A9%E3%81%86%E3%81%8B%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B.jpg","description":"咖啡館的店員美香和常客透之間的日常互動漸漸發展成為一段溫暖的愛情。","category":"浪漫愛情","is_completed":false},{"id":5,"title":"落葉歸根的邂逅","image":"https://storage.googleapis.com/comic-star-prod/fs/cover/09c268fa-c69a-41a8-ba2f-c7a22fb6fae7.jpg","description":"千春在一個秋日午後與昔日戀人誠相遇，兩人試圖找回失去的時光。","category":"浪漫愛情","is_completed":false},{"id":6,"title":"星光下的初吻","image":"https://i0.wp.com/acp.idv.tw/wp-content/uploads/2c9b74536881199b29e3495e4f057d28.jpg?ssl=1","description":"在夏季的祭典上，莉子和優雅第一次互相告白，星空見證了他們的初吻。","category":"浪漫愛情","is_completed":true}]}');
+;// CONCATENATED MODULE: ./src/data/Comic Content/BLComics.json
+const BLComics_namespaceObject = /*#__PURE__*/JSON.parse('{"manga":[{"id":1,"title":"鋼琴師的心弦","image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG9dC_gE-ZSGnWcwxdybMqG1XHOoGA_Lrr9g&s","description":"鋼琴師遼與他的新任小提琴手悠相遇，音樂讓他們的心靈產生了微妙的共鳴。","category":"音樂","is_completed":false},{"id":2,"title":"廢墟中的暖陽","image":"https://images.vocus.cc/17966820-0cb4-45b7-ba12-525c2c415074.jpg","description":"在末世的廢墟中，直樹與翔意外相遇，兩人在尋找生存希望的過程中互相依靠。","category":"末世","is_completed":true},{"id":3,"title":"咖啡香中的秘密","image":"https://images.vocus.cc/39822044-4509-4ccc-9ac6-80914f80aa82.jpg","description":"咖啡館老闆圭一與常客蓮之間的關係在每天的咖啡香中逐漸加深，隱藏的秘密也隨之揭開。","category":"日常","is_completed":false},{"id":4,"title":"探險家的浪漫","image":"https://down-tw.img.susercontent.com/file/ca5ce94f632ff0ca8eaff582200d2460","description":"兩名探險家航一和拓海在未知的土地上展開冒險，愛情在挑戰與發現中萌芽。","category":"冒險","is_completed":false},{"id":5,"title":"雙重生活的彼岸","image":"https://images.vocus.cc/f491ee0a-2a9d-4088-a0ba-1a7a98436352.jpg","description":"白天是精英律師，夜晚是神秘畫家的真司，與同樣雙重身份的健一陷入一段複雜的情感糾葛。","category":"懸疑","is_completed":true},{"id":6,"title":"星空下的邂逅","image":"https://images.vocus.cc/59c030e8-b54a-4a7a-964d-efa81c371398.jpg","description":"天文學家遙與攝影師光在追逐流星的旅途中相識，兩人的關係在星空下漸漸發展。","category":"浪漫","is_completed":true}]}');
+;// CONCATENATED MODULE: ./src/data/Comic Content/Exclusive.json
+const Exclusive_namespaceObject = /*#__PURE__*/JSON.parse('{"manga":[{"id":1,"title":"異世界的冒險者","image":"https://taiwan-image.bookwalker.com.tw/product/86687/zoom_big_86687.jpg","description":"普通上班族一郎被召喚到異世界，成為一名冒險者，展開了驚險的旅程。","category":"異世界","is_completed":false},{"id":2,"title":"時間旅行者的戀歌","image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5UfMf6EOnND1EnTJ_KrHbLfiAQXddnKgE5g&s","description":"科學家真一發現了時間旅行的方法，並在過去遇見了命中註定的戀人。","category":"科幻","is_completed":true},{"id":3,"title":"末日倖存者","image":"https://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20180115/868f193dba234a12bfb4aa4753a2e58e.jpeg","description":"在一場全球災難後，健太和一群倖存者必須合作求生，並尋找重建文明的方法。","category":"末世","is_completed":false},{"id":4,"title":"忍者的復仇之路","image":"https://p0.itc.cn/q_70/images03/20210804/4811c16aac2041f79578daa57508e00b.jpeg","description":"年輕的忍者曉在家族被敵對勢力滅門後，踏上了復仇之路，並逐漸揭開陰謀的真相。","category":"武俠","is_completed":true},{"id":5,"title":"超能學院","image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyWp-p-L4dJfksunoUExN5wvRJjiAJJONTgA&s","description":"在一所專為擁有超能力的學生設立的學院裡，蓮展現了他驚人的力量，並與同學們一起對抗邪惡勢力。","category":"超能力","is_completed":false},{"id":6,"title":"偵探與怪盜的追逐","image":"https://i.pinimg.com/236x/c0/96/95/c0969548358571305370b44d7efd6caf.jpg","description":"天才偵探光和神秘怪盜影在城市中展開了智慧與計謀的對決。","category":"懸疑","is_completed":true}]}');
+;// CONCATENATED MODULE: ./src/data/Comic Content/Serialization.json
+const Serialization_namespaceObject = /*#__PURE__*/JSON.parse('{"manga":[{"id":1,"title":"虛擬世界的邊緣","image":"https://www.mx-fm.com/upfile/xsfm/202407/2024072032247513.jpg","description":"高中生湊在最新的虛擬實境遊戲中意外發現了遊戲與現實世界的交界點，並捲入了驚天陰謀。","category":"科技","is_completed":false},{"id":2,"title":"古城的秘密","image":"https://shop.r10s.jp/book/cabinet/7166/9784866577166_1_2.jpg","description":"考古學家綾香在探索古城遺跡時，發現了隱藏千年的秘密，並展開了一段神秘的冒險。","category":"冒險","is_completed":false},{"id":3,"title":"靈異偵探社","image":"https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/085/44/0010854427.jpg&v=5e846d35k&w=375&h=375","description":"靈異偵探社的成員們專門調查都市傳說和超自然事件，他們不僅要面對靈異現象，還要解開背後的真相。","category":"靈異","is_completed":false},{"id":4,"title":"藝術家的謎團","image":"https://www.hmecy.com/wp-content/uploads/2022/07/20220730_62e4ff02344aa.jpg","description":"年輕的藝術家楓在追尋靈感的過程中，逐漸發現自己被捲入了一場與古老畫作有關的神秘事件。","category":"懸疑","is_completed":false},{"id":5,"title":"遺忘之島的謎題","image":"https://cdn.kdkw.jp/cover_1000/322210/322210000930.jpg","description":"一群冒險者來到一個神秘的遺忘之島，試圖解開其中的古老謎題，並尋找失落的寶藏。","category":"探險","is_completed":false},{"id":6,"title":"未來的回憶","image":"https://img.zcool.cn/community/010cbf6513a668000c291000baec21.jpg?imageMogr2/auto-orient/thumbnail/520x390r%3E/gravity/center/crop/520x390/sharpen/0.5/quality/80","description":"在不遠的未來，人們可以選擇保存和觀看自己的回憶，而主角悠斗卻發現了這項技術的背後暗藏陰謀。","category":"科幻","is_completed":false}]}');
+;// CONCATENATED MODULE: ./src/components/Recommended/BookList.jsx
+
+
+
+
+
+
+
+
+
+
+
+
+const menu = [{
+  name: "情人節專屬",
+  hover: "hover:text-pink-400 hover:border-pink-400",
+  color: "text-pink-400 border-pink-400"
+}, {
+  name: "浪漫愛情推薦",
+  hover: "hover:text-red-400 hover:border-red-400",
+  color: "text-red-400 border-red-400"
+}, {
+  name: "輕鬆搞笑推薦",
+  hover: " hover:text-yellow-400 hover:border-yellow-400 ",
+  color: "text-yellow-400 border-yellow-400"
+}, {
+  name: "BL漫畫推薦",
+  hover: "hover:text-purple-500 hover:border-purple-500",
+  color: "text-purple-500 border-purple-500"
+}, {
+  name: "獨家漫畫推薦",
+  hover: "hover:text-purple-300 hover:border-purple-300",
+  color: "text-purple-300 border-purple-300"
+}, {
+  name: "連載最新番",
+  hover: "hover:text-green-300 hover:border-green-300",
+  color: "text-green-300 border-green-300"
+}];
+const BookList = () => {
+  const [bookTab, setBookTab] = (0,react.useState)("情人節專屬");
+  const [bookTabData, setBookTabData] = (0,react.useState)(ValentineDay_namespaceObject);
+  function OnChangeBookTab(tab) {
+    switch (tab) {
+      case "情人節專屬":
+        setBookTabData(ValentineDay_namespaceObject);
+        break;
+      case "浪漫愛情推薦":
+        setBookTabData(RomanticLove_namespaceObject);
+        break;
+      case "輕鬆搞笑推薦":
+        setBookTabData(Easy_namespaceObject);
+        break;
+      case "BL漫畫推薦":
+        setBookTabData(BLComics_namespaceObject);
+        break;
+      case "獨家漫畫推薦":
+        setBookTabData(Exclusive_namespaceObject);
+        break;
+      case "連載最新番":
+        setBookTabData(Serialization_namespaceObject);
+        break;
+      default:
+        break;
+    }
+  }
+  return /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+    className: "flex flex-col  mt-8 mb-5 bg-zinc-600 px-3  rounded-xl   w-9/12",
+    children: [/*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+      className: "text-sm font-medium text-center ",
+      children: /*#__PURE__*/(0,jsx_runtime.jsxs)("ul", {
+        className: "flex flex-wrap -mb-px",
+        children: [menu.map((item, index) => {
+          return /*#__PURE__*/(0,jsx_runtime.jsx)("li", {
+            className: "me-2",
+            children: /*#__PURE__*/(0,jsx_runtime.jsx)(Link, {
+              href: "#",
+              className: `inline-block p-4 border-b-2  text-base  no-underline ${item.hover} ${bookTab == item.name ? item.color : "text-blue-50 border-transparent"} `,
+              onClick: () => {
+                setBookTab(item.name);
+                OnChangeBookTab(item.name);
+              },
+              children: item.name
+            })
+          }, item.color);
+        }), /*#__PURE__*/(0,jsx_runtime.jsx)("li", {
+          className: "ms-auto flex justify-center items-center",
+          children: /*#__PURE__*/(0,jsx_runtime.jsxs)(Link, {
+            className: "flex justify-center items-center no-underline text-white hover:text-slate-300 hover:border-slate-400 border-2 border-slate-300 rounded-lg p-2 ",
+            children: [/*#__PURE__*/(0,jsx_runtime.jsx)("p", {
+              className: "pe-2",
+              children: "\u66F4\u591A\u63A8\u85A6"
+            }), /*#__PURE__*/(0,jsx_runtime.jsx)("svg", {
+              className: "w-3 h-3 ",
+              "aria-hidden": "true",
+              xmlns: "http://www.w3.org/2000/svg",
+              fill: "none",
+              viewBox: "0 0 8 14",
+              children: /*#__PURE__*/(0,jsx_runtime.jsx)("path", {
+                stroke: "currentColor",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                strokeWidth: "2",
+                d: "m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"
+              })
+            })]
+          })
+        })]
+      })
+    }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+      className: `flex  flex-wrap lg:flex-nowrap justify-center items-center  lg:rounded-tr-none p-3  `,
+      children: bookTabData.manga.map((item, index) => {
+        return /*#__PURE__*/(0,jsx_runtime.jsx)(Recommended_RecommendCard, {
+          title: item.title,
+          image: item.image,
+          category: item.category,
+          is_completed: item.is_completed,
+          description: item.description
+        }, item.id);
+      })
+    })]
+  });
+};
+/* harmony default export */ const Recommended_BookList = (BookList);
+;// CONCATENATED MODULE: ./src/image/newImage.png
+/* harmony default export */ const newImage = ("./image/newImage.png");
 ;// CONCATENATED MODULE: ./src/pages/Index.jsx
 
 
 
 
 
+
+
 const Index = () => {
-  return /*#__PURE__*/(0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
-    children: [/*#__PURE__*/(0,jsx_runtime.jsx)("div", {
-      className: "w-full  bg-stone-900 px-5 py-10 mb-8",
-      children: /*#__PURE__*/(0,jsx_runtime.jsx)(other_Carousel, {})
-    }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
-      className: " flex justify-center items-center mt-8 ",
-      children: /*#__PURE__*/(0,jsx_runtime.jsx)(other_Typewriter, {})
-    }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
-      className: " flex justify-center items-center mt-8 ",
-      children: /*#__PURE__*/(0,jsx_runtime.jsx)(other_HolidayBookList, {})
-    })]
+  return /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+    className: "flex  flex-col justify-center items-center",
+    children: [/*#__PURE__*/(0,jsx_runtime.jsx)(Carousel_Carousel, {}), /*#__PURE__*/(0,jsx_runtime.jsx)(Marquee_Typewriter, {}), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+      className: " ",
+      children: [/*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+        className: "bg-gray-300 rounded-md p-4",
+        children: [/*#__PURE__*/(0,jsx_runtime.jsx)("h3", {
+          className: " ",
+          children: "\u6BCF\u5468\u6700\u65B0\u9023\u8F09"
+        }), /*#__PURE__*/(0,jsx_runtime.jsx)("img", {
+          src: newImage,
+          alt: "",
+          className: "w-52 h-52"
+        })]
+      }), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+        className: "flex ",
+        children: [/*#__PURE__*/(0,jsx_runtime.jsx)("p", {
+          className: "text-white",
+          children: "\u9031\u4E00"
+        }), /*#__PURE__*/(0,jsx_runtime.jsx)("p", {
+          className: "text-white",
+          children: "\u9031\u4E8C"
+        })]
+      })]
+    }), /*#__PURE__*/(0,jsx_runtime.jsx)(Recommended_BookList, {}), /*#__PURE__*/(0,jsx_runtime.jsx)(FreeComic_FreeComic, {})]
   });
 };
 /* harmony default export */ const pages_Index = (Index);
@@ -8957,19 +9201,7 @@ const NotFound = () => {
   });
 };
 /* harmony default export */ const pages_NotFound = (NotFound);
-;// CONCATENATED MODULE: ./src/pages/React.jsx
-
-const React_React = () => {
-  return /*#__PURE__*/(0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
-    children: /*#__PURE__*/(0,jsx_runtime.jsx)("h3", {
-      className: "text-2xl",
-      children: "React"
-    })
-  });
-};
-/* harmony default export */ const pages_React = (React_React);
 ;// CONCATENATED MODULE: ./src/App.jsx
-
 
 
 
@@ -8981,9 +9213,6 @@ const router = createBrowserRouter([{
   children: [{
     path: "/admin",
     element: /*#__PURE__*/(0,jsx_runtime.jsx)(pages_Index, {})
-  }, {
-    path: "/react",
-    element: /*#__PURE__*/(0,jsx_runtime.jsx)(pages_React, {})
   }, {
     path: "/login",
     element: /*#__PURE__*/(0,jsx_runtime.jsx)(pages_Login, {})

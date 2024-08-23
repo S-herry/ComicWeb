@@ -5,7 +5,7 @@ const Button = ({ type = "button", onClick, className, children, props }) => {
     <button
       type={type}
       onClick={onClick}
-      className={`block  rounded font-semibold transition-all ${className}`}
+      className={`block   font-semibold transition-all ${className}`}
       {...props}
     >
       {children}

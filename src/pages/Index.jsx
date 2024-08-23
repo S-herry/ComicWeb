@@ -1,19 +1,45 @@
+import { Link } from "react-router-dom";
 import Carousel from "../components/Carousel/Carousel";
+import Button from "../components/common/Button";
+import FreeComic from "../components/FreeComic/FreeComic";
 import Typewriter from "../components/Marquee/Typewriter";
 import HolidayBookList from "../components/Recommended/BookList";
+import newImage from "../image/newImage.png";
+import Week from "../components/LatestDayUpDates/Week";
+const weekDay = [
+  "星期一",
+  "星期二",
+  "星期三",
+  "星期四",
+  "星期五",
+  "星期六",
+  "星期日",
+];
+
 const Index = () => {
   return (
-    <>
-      <div className="w-full  bg-stone-900 px-5 py-10 mb-8">
-        <Carousel />
+    <div className="flex  flex-col justify-center items-center">
+      <Carousel />
+      <div className="bg-gray-900 p-4 w-full  text-center ">
+        {weekDay.map((item, index) => {
+          return (
+            <Link
+              key={index}
+              className=" font-bold text-2xl  no-underline text-white hover:text-gray-400 ms-8"
+            >
+              {item}
+            </Link>
+          );
+        })}
       </div>
-      <div className=" flex justify-center items-center mt-8 ">
-        <Typewriter />
+      {/* <Typewriter /> */}
+      <div className="w-full mb-5 flex  p-10 justify-center items-center">
+        <Week />
       </div>
-      <div className=" flex justify-center items-center mt-8 ">
-        <HolidayBookList />
-      </div>
-    </>
+
+      <FreeComic />
+      <HolidayBookList />
+    </div>
   );
 };
 

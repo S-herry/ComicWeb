@@ -1,0 +1,52 @@
+{
+  "manga": [
+    {
+      "id": 1,
+      "title": "星夜下的秘密花園",
+      "image": "https://www.tohan.com.tw/data/goods/gallery_org/202204/1650935750951693245.jpg",
+      "description": "綾音發現了一個夜晚才會出現的奇幻花園，並遇見了守護者蓮，展開跨越時空的愛戀。",
+      "category": "幻想愛情",
+      "is_completed": false
+    },
+    {
+      "id": 2,
+      "title": "雨中的甜蜜旋律",
+      "image": "https://www.books.com.tw/img/001/067/02/0010670201.jpg",
+      "description": "美琴遇見神秘少年奏一，在雨天的咖啡館中重新燃起對鋼琴的熱愛，決心挑戰音樂比賽。",
+      "category": "校園愛情",
+      "is_completed": false
+    },
+    {
+      "id": 3,
+      "title": "那天，我們一起看星星",
+      "image": "https://img.acgn.cc/img/430600/430506/1.jpg",
+      "description": "夏月和好友們參加觀星活動，共同度過了難忘的青春夏天，並找到了屬於自己的未來。",
+      "category": "青春成長",
+      "is_completed": true
+    },
+    {
+      "id": 4,
+      "title": "櫻花飄落的約定",
+      "image": "https://image.cdn2.seaart.ai/2024-01-21/cmmpe55e878c73bh24ng/2462a96139c1b31a8758cf9446b1b8bb7da0c200_high.webp",
+      "description": "遙子遇見尋找童年約定的湊，隨著記憶重現，他們的命運被緊密相連。",
+      "category": "浪漫愛情",
+      "is_completed": false
+    },
+    {
+      "id": 5,
+      "title": "光與影的交錯",
+      "image": "https://i.pinimg.com/236x/44/64/2c/44642cd787189e18f2d679dbb8ab1cba.jpg",
+      "description": "冷漠的紫苑能看到他人內心陰影，與學長光也的相遇讓她重新認識自己。",
+      "category": "神秘愛情",
+      "is_completed": true
+    },
+    {
+      "id": 6,
+      "title": "夢境中的他和她",
+      "image": "https://gd-hbimg.huaban.com/5d1f58c41fc08f2be3b4b1e5310b7865639c1011b947-HItUUf_fw658",
+      "description": "真奈夢見未來將發生的事，直到遇見與夢中少年相似的轉學生晴斗。",
+      "category": "奇幻愛情",
+      "is_completed": false
+    }
+  ]
+}

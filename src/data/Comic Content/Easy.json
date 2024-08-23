@@ -1,0 +1,52 @@
+{
+  "manga": [
+    {
+      "id": 1,
+      "title": "貓咪咖啡館的日常",
+      "image": "https://cdn.pixabay.com/photo/2022/08/27/09/16/design-7414038_1280.jpg",
+      "description": "小春在一間貓咪咖啡館打工，每天都被可愛的貓咪和顧客們的趣事圍繞。",
+      "category": "治癒",
+      "is_completed": false
+    },
+    {
+      "id": 2,
+      "title": "鄉村小屋的悠閒時光",
+      "image": "https://live.staticflickr.com/659/20906730856_efc2f66b68_c.jpg",
+      "description": "都市女孩紗羅搬到鄉下的小屋，開始了種菜、做飯和與自然共處的放鬆生活。",
+      "category": "田園",
+      "is_completed": true
+    },
+    {
+      "id": 3,
+      "title": "快樂的甜點時光",
+      "image": "https://image.cdn2.seaart.ai/2024-03-19/cnstrm5e878c73bvgheg/b6498ddc746ed2bf432e40a0d657ebdbc8e2de8e_high.webp",
+      "description": "甜點師莉奈和她的朋友們在甜品店裡一起創作美味的甜點，享受每一個快樂的瞬間。",
+      "category": "美食",
+      "is_completed": false
+    },
+    {
+      "id": 4,
+      "title": "午后的午後茶",
+      "image": "https://image.cdn2.seaart.ai/2024-01-20/cmm1u9te878c73a8u840/cdc357eb1624badb58077ecadf6f92b50ac05871_high.webp",
+      "description": "小夏和朋友們定期舉辦下午茶聚會，分享生活中的小確幸和甜點。",
+      "category": "友情",
+      "is_completed": true
+    },
+    {
+      "id": 5,
+      "title": "在街角的小書店",
+      "image": "https://images.vocus.cc/a1d70142-16c6-4c38-affc-dcfd9c42bdaa.jpg",
+      "description": "小智在街角經營一家小書店，和顧客們分享書籍的樂趣與故事。",
+      "category": "文學",
+      "is_completed": false
+    },
+    {
+      "id": 6,
+      "title": "鄰居家的小狗",
+      "image": "https://thumbs.dreamstime.com/b/%E5%A4%8D%E5%8F%A4%E6%BC%AB%E5%A8%81%E6%BC%AB%E7%94%BB%E5%B0%81%E9%9D%A2-%E5%8D%A1%E5%B0%94%E5%8A%A0%E9%87%8C%E9%98%BF%E5%B0%94%E4%BC%AF%E5%A1%94%E7%9C%81-%E5%B9%B4-%E6%9C%88-%E6%97%A5-278618265.jpg",
+      "description": "小圓每天都去拜訪鄰居家的小狗，逐漸成為牠最好的朋友。",
+      "category": "動物",
+      "is_completed": true
+    }
+  ]
+}

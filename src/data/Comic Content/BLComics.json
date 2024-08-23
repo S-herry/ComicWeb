@@ -1,0 +1,52 @@
+{
+  "manga": [
+    {
+      "id": 1,
+      "title": "鋼琴師的心弦",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG9dC_gE-ZSGnWcwxdybMqG1XHOoGA_Lrr9g&s",
+      "description": "鋼琴師遼與他的新任小提琴手悠相遇，音樂讓他們的心靈產生了微妙的共鳴。",
+      "category": "音樂",
+      "is_completed": false
+    },
+    {
+      "id": 2,
+      "title": "廢墟中的暖陽",
+      "image": "https://images.vocus.cc/17966820-0cb4-45b7-ba12-525c2c415074.jpg",
+      "description": "在末世的廢墟中，直樹與翔意外相遇，兩人在尋找生存希望的過程中互相依靠。",
+      "category": "末世",
+      "is_completed": true
+    },
+    {
+      "id": 3,
+      "title": "咖啡香中的秘密",
+      "image": "https://images.vocus.cc/39822044-4509-4ccc-9ac6-80914f80aa82.jpg",
+      "description": "咖啡館老闆圭一與常客蓮之間的關係在每天的咖啡香中逐漸加深，隱藏的秘密也隨之揭開。",
+      "category": "日常",
+      "is_completed": false
+    },
+    {
+      "id": 4,
+      "title": "探險家的浪漫",
+      "image": "https://down-tw.img.susercontent.com/file/ca5ce94f632ff0ca8eaff582200d2460",
+      "description": "兩名探險家航一和拓海在未知的土地上展開冒險，愛情在挑戰與發現中萌芽。",
+      "category": "冒險",
+      "is_completed": false
+    },
+    {
+      "id": 5,
+      "title": "雙重生活的彼岸",
+      "image": "https://images.vocus.cc/f491ee0a-2a9d-4088-a0ba-1a7a98436352.jpg",
+      "description": "白天是精英律師，夜晚是神秘畫家的真司，與同樣雙重身份的健一陷入一段複雜的情感糾葛。",
+      "category": "懸疑",
+      "is_completed": true
+    },
+    {
+      "id": 6,
+      "title": "星空下的邂逅",
+      "image": "https://images.vocus.cc/59c030e8-b54a-4a7a-964d-efa81c371398.jpg",
+      "description": "天文學家遙與攝影師光在追逐流星的旅途中相識，兩人的關係在星空下漸漸發展。",
+      "category": "浪漫",
+      "is_completed": true
+    }
+  ]
+}

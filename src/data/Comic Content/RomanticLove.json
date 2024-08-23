@@ -1,0 +1,52 @@
+{
+  "manga": [
+    {
+      "id": 1,
+      "title": "夏日微風的告白",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4K9hoMznJYTCULst68d4cliWGV49AA8hB9g&s",
+      "description": "高中生陽奈在暑假中鼓起勇氣向青梅竹馬的拓海告白，他們的關係因此發生了微妙的變化。",
+      "category": "浪漫愛情",
+      "is_completed": true
+    },
+    {
+      "id": 2,
+      "title": "冬夜下的牽絆",
+      "image": "https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088921310/1200/9784088921310.jpg",
+      "description": "在雪花飄落的城市中，紗雪和凌意外重逢，他們之間未解的情感再次浮現。",
+      "category": "浪漫愛情",
+      "is_completed": false
+    },
+    {
+      "id": 3,
+      "title": "雨中的秘密約定",
+      "image": "https://i0.wp.com/acp.idv.tw/wp-content/uploads/444487862_476444194917286_4257625653180151509_n.jpg?ssl=1",
+      "description": "莉音和修輔在大學校園裡的一場雨中重新相遇，並重溫了他們在高中時期的秘密約定。",
+      "category": "浪漫愛情",
+      "is_completed": true
+    },
+    {
+      "id": 4,
+      "title": "晨光中的愛戀",
+      "image": "https://upload.wikimedia.org/wikipedia/zh/thumb/1/14/%E7%A7%81%E3%81%9F%E3%81%A1%E3%81%AF%E3%81%A9%E3%81%86%E3%81%8B%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B.jpg/220px-%E7%A7%81%E3%81%9F%E3%81%A1%E3%81%AF%E3%81%A9%E3%81%86%E3%81%8B%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B.jpg",
+      "description": "咖啡館的店員美香和常客透之間的日常互動漸漸發展成為一段溫暖的愛情。",
+      "category": "浪漫愛情",
+      "is_completed": false
+    },
+    {
+      "id": 5,
+      "title": "落葉歸根的邂逅",
+      "image": "https://storage.googleapis.com/comic-star-prod/fs/cover/09c268fa-c69a-41a8-ba2f-c7a22fb6fae7.jpg",
+      "description": "千春在一個秋日午後與昔日戀人誠相遇，兩人試圖找回失去的時光。",
+      "category": "浪漫愛情",
+      "is_completed": false
+    },
+    {
+      "id": 6,
+      "title": "星光下的初吻",
+      "image": "https://i0.wp.com/acp.idv.tw/wp-content/uploads/2c9b74536881199b29e3495e4f057d28.jpg?ssl=1",
+      "description": "在夏季的祭典上，莉子和優雅第一次互相告白，星空見證了他們的初吻。",
+      "category": "浪漫愛情",
+      "is_completed": true
+    }
+  ]
+}

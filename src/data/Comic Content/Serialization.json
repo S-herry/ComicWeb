@@ -1,0 +1,52 @@
+{
+  "manga": [
+    {
+      "id": 1,
+      "title": "虛擬世界的邊緣",
+      "image": "https://www.mx-fm.com/upfile/xsfm/202407/2024072032247513.jpg",
+      "description": "高中生湊在最新的虛擬實境遊戲中意外發現了遊戲與現實世界的交界點，並捲入了驚天陰謀。",
+      "category": "科技",
+      "is_completed": false
+    },
+    {
+      "id": 2,
+      "title": "古城的秘密",
+      "image": "https://shop.r10s.jp/book/cabinet/7166/9784866577166_1_2.jpg",
+      "description": "考古學家綾香在探索古城遺跡時，發現了隱藏千年的秘密，並展開了一段神秘的冒險。",
+      "category": "冒險",
+      "is_completed": false
+    },
+    {
+      "id": 3,
+      "title": "靈異偵探社",
+      "image": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/085/44/0010854427.jpg&v=5e846d35k&w=375&h=375",
+      "description": "靈異偵探社的成員們專門調查都市傳說和超自然事件，他們不僅要面對靈異現象，還要解開背後的真相。",
+      "category": "靈異",
+      "is_completed": false
+    },
+    {
+      "id": 4,
+      "title": "藝術家的謎團",
+      "image": "https://www.hmecy.com/wp-content/uploads/2022/07/20220730_62e4ff02344aa.jpg",
+      "description": "年輕的藝術家楓在追尋靈感的過程中，逐漸發現自己被捲入了一場與古老畫作有關的神秘事件。",
+      "category": "懸疑",
+      "is_completed": false
+    },
+    {
+      "id": 5,
+      "title": "遺忘之島的謎題",
+      "image": "https://cdn.kdkw.jp/cover_1000/322210/322210000930.jpg",
+      "description": "一群冒險者來到一個神秘的遺忘之島，試圖解開其中的古老謎題，並尋找失落的寶藏。",
+      "category": "探險",
+      "is_completed": false
+    },
+    {
+      "id": 6,
+      "title": "未來的回憶",
+      "image": "https://img.zcool.cn/community/010cbf6513a668000c291000baec21.jpg?imageMogr2/auto-orient/thumbnail/520x390r%3E/gravity/center/crop/520x390/sharpen/0.5/quality/80",
+      "description": "在不遠的未來，人們可以選擇保存和觀看自己的回憶，而主角悠斗卻發現了這項技術的背後暗藏陰謀。",
+      "category": "科幻",
+      "is_completed": false
+    }
+  ]
+}

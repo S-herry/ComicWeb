@@ -4,35 +4,63 @@ import image from "../../json/image.json";
 import { useEffect, useState } from "react";
 
 const Carousel = () => {
-  const [currentIndex, setCurrentIndex] = useState("刀刀");
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => {
+      return prevIndex === image.length - 1 ? 0 : prevIndex + 1;
+    });
+  };
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => {
+      return prevIndex === 0 ? image.length - 1 : prevIndex - 1;
+    });
+  };
 
   return (
-    <div className="w-full  bg-stone-900 px-5 py-10">
-      <ul className="flex justify-center items-center overflow-x-auto ">
-        {image.map((movie) => (
-          <li key={movie.name} className="inline-block w-1/5 relative">
-            <div className="bg-black absolute w-full h-full opacity-30 shadow"></div>
-            <Link href="#">
-              <img
-                src={movie.url}
-                alt={movie.name}
-                draggable="false"
-                className="object-fill h-72 "
-              />
-            </Link>
-          </li>
-        ))}
+    <div className=" bg-stone-900 px-5 py-10 w-full">
+      <ul className="flex justify-center items-center overflow-x-auto w-full">
+        {/* {image.map((movie) => ( */}
+        <li
+          // key={movie.name}
+          className={`
+            inline-block  relative `}
+        >
+          {/* ${
+              currentName == movie.name ? "flex-1 w-full" : "flex-none  w-72"
+            } */}
+          {/* {currentName == movie.name ? null : (
+              <div className="bg-black absolute w-full h-full opacity-30 shadow"></div>
+            )} */}
+          <Link href="#">
+            <img
+              src={image[currentIndex]}
+              alt={image[currentIndex]}
+              draggable="false"
+              className={`object-full h-96 `}
+            />
+            {/* ${
+                  currentName == movie.name ? "flex-1 w-full" : "flex-none "
+                } */}
+          </Link>
+        </li>
+        {/* ))} */}
       </ul>
       <div className=" flex  justify-center items-center mt-3">
-        {image.map((movie) => (
-          <Button
-            key={movie.url}
-            className={`${
-              currentIndex === movie.name ? "bg-orange-400" : "bg-white"
-            } py-1 px-3 m-1`}
-            onClick={() => setCurrentIndex(movie.name)}
-          ></Button>
-        ))}
+        {/* {image.map((movie) => ( */}
+        <Button
+          // key={movie.url}
+          className={` py-1 px-3 m-1 rounded-md bg-white`}
+          // ${
+          //   currentName === movie.name ? "bg-orange-400" : "bg-white"
+          // }
+          onClick={nextSlide}
+        ></Button>
+        {/* ))} */}
+        <Button
+          className={` py-1 px-3 m-1 rounded-md bg-white`}
+          onClick={prevSlide}
+        ></Button>
       </div>
     </div>
   );
