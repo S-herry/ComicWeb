@@ -7,8 +7,8 @@ import Easy from "../../data/Comic Content/Easy.json";
 import BLComics from "../../data/Comic Content/BLComics.json";
 import Exclusive from "../../data/Comic Content/Exclusive.json";
 import Serialization from "../../data/Comic Content/Serialization.json";
-import Tab from "../common/Tab";
-import Button from "../common/Button";
+import Div from "../common/Div";
+
 const menu = [
   {
     name: "情人節專屬",
@@ -72,12 +72,12 @@ const BookList = () => {
   }
 
   return (
-    <div className="flex flex-col  mt-8 mb-5 bg-zinc-600 px-3  rounded-xl   w-9/12">
+    <Div className=" bg-zinc-600 ">
       <div className="text-sm font-medium text-center ">
-        <ul className="flex flex-wrap -mb-px">
+        <ul className="flex flex-wrap -mb-px justify-center">
           {menu.map((item, index) => {
             return (
-              <li key={item.color} className="me-2">
+              <li key={item.color} className="me-2 ">
                 <Link
                   href="#"
                   className={`inline-block p-4 border-b-2  text-base  no-underline ${
@@ -121,7 +121,7 @@ const BookList = () => {
       </div>
 
       <div
-        className={`flex  flex-wrap lg:flex-nowrap justify-center items-center  lg:rounded-tr-none p-3  `}
+        className={`flex  flex-wrap lg:flex-nowrap justify-center items-center  lg:rounded-tr-none `}
       >
         {bookTabData.manga.map((item, index) => {
           return (
@@ -136,7 +136,7 @@ const BookList = () => {
           );
         })}
       </div>
-    </div>
+    </Div>
   );
 };
 

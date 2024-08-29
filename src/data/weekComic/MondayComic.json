@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "week": "Monday",
+    "isOngoing": true,
+    "category": "动作",
+    "description": "这部动作漫画讲述了一位战士在未来世界中与外星敌人展开的激烈战斗。每一章都充满了紧张的战斗场面和精彩的剧情。",
+    "title": "未来战士",
+    "image": "https://via.placeholder.com/150x200/000000/FFFFFF?text=Image1"
+  },
+  {
+    "id": 2,
+    "week": "Monday",
+    "isOngoing": false,
+    "category": "喜剧",
+    "description": "漫画讲述了一名幽默风趣的主角和他的搞笑朋友们的日常生活。各种荒诞的情况和搞笑的对话让人捧腹大笑。",
+    "title": "搞笑人生",
+    "image": "https://via.placeholder.com/150x200/000000/FFFFFF?text=Image2"
+  },
+  {
+    "id": 3,
+    "week": "Monday",
+    "isOngoing": true,
+    "category": "剧情",
+    "description": "这部剧情漫画描绘了主人公面临的个人挑战和心理斗争。通过细腻的情节和深刻的角色描写，展现了人类情感的复杂性。",
+    "title": "心灵挣扎",
+    "image": "https://via.placeholder.com/150x200/000000/FFFFFF?text=Image3"
+  },
+  {
+    "id": 4,
+    "week": "Monday",
+    "isOngoing": false,
+    "category": "奇幻",
+    "description": "进入一个充满魔法和幻想生物的世界，跟随主角展开奇妙的冒险。每一章都带你进入一个新的奇幻领域。",
+    "title": "魔法冒险",
+    "image": "https://via.placeholder.com/150x200/000000/FFFFFF?text=Image4"
+  },
+  {
+    "id": 5,
+    "week": "Monday",
+    "isOngoing": true,
+    "category": "浪漫",
+    "description": "讲述了一对情侣在面对生活挑战和个人问题时的爱情故事。充满了甜蜜和感人的情节。",
+    "title": "爱情长跑",
+    "image": "https://via.placeholder.com/150x200/000000/FFFFFF?text=Image5"
+  },
+  {
+    "id": 6,
+    "week": "Monday",
+    "isOngoing": false,
+    "category": "悬疑",
+    "description": "悬疑漫画围绕一系列神秘案件展开，主角需要解决复杂的谜团。每一章都带来新的线索和惊人的真相。",
+    "title": "悬疑谜案",
+    "image": "https://via.placeholder.com/150x200/000000/FFFFFF?text=Image6"
+  },
+  {
+    "id": 7,
+    "week": "Monday",
+    "isOngoing": true,
+    "category": "科幻",
+    "description": "设定在一个高度发达的未来世界，讲述了主角如何应对科技带来的挑战。充满了前沿科技和未来幻想的元素。",
+    "title": "未来探险",
+    "image": "https://via.placeholder.com/150x200/000000/FFFFFF?text=Image7"
+  },
+  {
+    "id": 8,
+    "week": "Monday",
+    "isOngoing": false,
+    "category": "历史",
+    "description": "通过漫画的形式再现历史上的重要事件和人物。详细的画风和生动的叙述让你深入了解历史的背景。",
+    "title": "历史探秘",
+    "image": "https://via.placeholder.com/150x200/000000/FFFFFF?text=Image8"
+  }
+]

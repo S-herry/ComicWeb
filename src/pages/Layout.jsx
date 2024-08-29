@@ -2,6 +2,7 @@ import { Link, Outlet } from "react-router-dom";
 import Button from "../components/common/Button";
 import { useState } from "react";
 import ComicTags from "../components/tabs/ComicTags";
+import Footer from "../components/Footer/Footer";
 
 const linkStyle =
   "no-underline me-5 text-white font-bold  hover:border-yellow-500 pb-1  b-4  border-b-4";
@@ -37,10 +38,8 @@ const Layout = () => {
             />
           </div>
           <button
-            data-collapse-toggle="navbar-default"
             type="button"
             className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-default"
             aria-expanded="false"
           >
             <span className="sr-only">Open main menu</span>
@@ -57,14 +56,20 @@ const Layout = () => {
           <div className="hidden w-full md:block md:w-auto ">
             <ul className=" flex flex-col md:p-0 items-center md:flex-row md:space-x-8 ">
               <li>
-                <Button className="py-2  px-5 text-black bg-yellow-300 hover:bg-yellow-500">
+                <Link
+                  to="/login"
+                  className="py-2 border border-yellow-300 rounded-md px-5 text-black bg-yellow-300 hover:bg-yellow-500"
+                >
                   註冊
-                </Button>
+                </Link>
               </li>
               <li>
-                <Button className="py-2  px-5 border text-white bg-black hover:text-black hover:bg-white">
+                <Link
+                  to="/login"
+                  className="py-2  px-5 border rounded-md  text-white bg-black hover:text-black hover:bg-white"
+                >
                   登入
-                </Button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -112,9 +117,11 @@ const Layout = () => {
         />
       </nav>
 
-      <main>
+      <main className=" min-h-svh">
         <Outlet />
       </main>
+
+      <Footer />
     </>
   );
 };

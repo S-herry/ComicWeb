@@ -2,12 +2,13 @@ import { useState } from "react";
 import Easy from "../../data/Comic Content/Easy.json";
 import { Link } from "react-router-dom";
 import FreeCard from "./FreeCard";
+import Div from "../common/Div";
 
 const FreeComic = () => {
   const [bookTabData, setBookTabData] = useState(Easy);
 
   return (
-    <div className=" bg-white mt-8 mb-5 rounded-md flex flex-col  px-3 w-9/12">
+    <Div className=" bg-white ">
       <div className="flex ">
         <div className="m-2 flex justify-center items-center">
           <p className=" text-2xl font-bold ms-2">
@@ -40,22 +41,22 @@ const FreeComic = () => {
       </div>
 
       <div
-        className={`flex flex-wrap lg:flex-nowrap justify-center items-center  lg:rounded-tr-none p-3`}
+        className={`flex  flex-wrap lg:flex-nowrap justify-center items-center  lg:rounded-tr-none `}
       >
         {bookTabData.manga.map((item, index) => {
           return (
-            <FreeCard
-              key={item.id}
-              title={item.title}
-              image={item.image}
-              category={item.category}
-              is_completed={item.is_completed}
-              description={item.description}
-            />
+            <Link key={"bookTabData" + item.id} className=" m-3 w-full">
+              <FreeCard
+                title={item.title}
+                image={item.image}
+                category={item.category}
+                is_completed={item.is_completed}
+              />
+            </Link>
           );
         })}
       </div>
-    </div>
+    </Div>
   );
 };
 

@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import Tab from "../common/Tab";
 
-const FreeCard = ({ title, category, image, is_completed, description }) => {
+const FreeCard = ({ title, category, image, is_completed }) => {
   return (
-    <div className=" bg-slate-800 w-full  flex  flex-col  rounded-md  relative m-3">
+    <div
+      className={` bg-slate-800 w-full  flex  flex-col  rounded-md  relative  `}
+    >
       <div className="w-full flex justify-center items-center p-2">
         <img src={image} alt="" className=" w-11/12 h-56 object-cover " />
       </div>
@@ -15,7 +17,7 @@ const FreeCard = ({ title, category, image, is_completed, description }) => {
             className="mx-2 text-white"
           />
         </div>
-        <p className=" text-white  font-bold px-4 py-2">{title}</p>
+        <p className=" text-white  font-bold px-4 py-2 text-nowrap">{title}</p>
       </div>
     </div>
   );

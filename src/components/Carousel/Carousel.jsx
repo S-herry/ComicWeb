@@ -1,67 +1,72 @@
+import React, { useEffect, useState } from "react";
+import image from "../../data/image.json";
+import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import Button from "../common/Button";
-import image from "../../json/image.json";
-import { useEffect, useState } from "react";
-
 const Carousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => {
-      return prevIndex === image.length - 1 ? 0 : prevIndex + 1;
-    });
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const goToNextSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === image.length - 1 ? 0 : prevIndex + 1
+    );
   };
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => {
-      return prevIndex === 0 ? image.length - 1 : prevIndex - 1;
-    });
+
+  const goToPrevSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? image.length - 1 : prevIndex - 1
+    );
+  };
+
+  const getSlideClass = (index) => {
+    if (index === currentIndex) {
+      return "scale-100 opacity-100 z-10 w-2/4";
+    } else if (index === (currentIndex - 1 + image.length) % image.length) {
+      return "scale-90 opacity-60 w-1/4 ";
+    } else if (index === (currentIndex + 1) % image.length) {
+      return "scale-90 opacity-60 w-1/4 ";
+    } else {
+      return "hidden";
+    }
   };
 
   return (
-    <div className=" bg-stone-900 px-5 py-10 w-full">
-      <ul className="flex justify-center items-center overflow-x-auto w-full">
-        {/* {image.map((movie) => ( */}
-        <li
-          // key={movie.name}
-          className={`
-            inline-block  relative `}
-        >
-          {/* ${
-              currentName == movie.name ? "flex-1 w-full" : "flex-none  w-72"
-            } */}
-          {/* {currentName == movie.name ? null : (
-              <div className="bg-black absolute w-full h-full opacity-30 shadow"></div>
-            )} */}
-          <Link href="#">
-            <img
-              src={image[currentIndex]}
-              alt={image[currentIndex]}
-              draggable="false"
-              className={`object-full h-96 `}
-            />
-            {/* ${
-                  currentName == movie.name ? "flex-1 w-full" : "flex-none "
-                } */}
-          </Link>
-        </li>
-        {/* ))} */}
-      </ul>
-      <div className=" flex  justify-center items-center mt-3">
-        {/* {image.map((movie) => ( */}
-        <Button
-          // key={movie.url}
-          className={` py-1 px-3 m-1 rounded-md bg-white`}
-          // ${
-          //   currentName === movie.name ? "bg-orange-400" : "bg-white"
-          // }
-          onClick={nextSlide}
-        ></Button>
-        {/* ))} */}
-        <Button
-          className={` py-1 px-3 m-1 rounded-md bg-white`}
-          onClick={prevSlide}
-        ></Button>
+    <div className="relative w-full flex items-center justify-center">
+      <button
+        className="absolute left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        onClick={goToPrevSlide}
+      >
+        <FontAwesomeIcon
+          icon={faAngleLeft}
+          className="text-white font-extrabold text-xl bg-white/70 p-4 w-5 rounded-full"
+        />
+      </button>
+
+      <div className="relative overflow-hidden rounded-lg h-96 flex items-center justify-center">
+        {image.map((item, index) => {
+          return (
+            <div
+              key={"img" + index}
+              className={`transition-all duration-700 ease-in-out transform mx-1 ${getSlideClass(
+                index
+              )}`}
+            >
+              <Link>
+                <img src={item} className="block w-full h-full object-cover" />
+              </Link>
+            </div>
+          );
+        })}
       </div>
+
+      <button
+        className="absolute right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        onClick={goToNextSlide}
+      >
+        <FontAwesomeIcon
+          icon={faAngleRight}
+          className="text-white font-extrabold text-xl bg-white/70 p-4 w-5 rounded-full"
+        />
+      </button>
     </div>
   );
 };

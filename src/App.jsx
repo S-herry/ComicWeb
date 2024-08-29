@@ -3,6 +3,8 @@ import Layout from "./pages/Layout";
 import Login from "./pages/Login";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import ComicInfo from "./components/comicInfo/ComicInfo";
+
 const router = createBrowserRouter([
   {
     element: <Layout />,
@@ -11,6 +13,14 @@ const router = createBrowserRouter([
         path: "/admin",
         element: <Index />,
       },
+      {
+        path: `/comic`,
+        element: <ComicInfo />,
+      },
+    ],
+  },
+  {
+    children: [
       {
         path: "/login",
         element: <Login />,

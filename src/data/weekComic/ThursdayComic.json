@@ -1,0 +1,74 @@
+[
+  {
+    "id": 25,
+    "week": "Thursday",
+    "isOngoing": true,
+    "category": "动作",
+    "description": "这部漫画讲述了一名战士在全球范围内执行高风险任务的故事。紧张的战斗场面和复杂的情节让人热血沸腾。",
+    "title": "全球战士",
+    "image": "https://via.placeholder.com/150x200/000000/FFFFFF?text=Image25"
+  },
+  {
+    "id": 26,
+    "week": "Thursday",
+    "isOngoing": false,
+    "category": "喜剧",
+    "description": "漫画展示了主人公在奇特情况下的搞笑冒险。通过夸张的情节和幽默的对话，让人忍俊不禁。",
+    "title": "幽默人生",
+    "image": "https://via.placeholder.com/150x200/000000/FFFFFF?text=Image26"
+  },
+  {
+    "id": 27,
+    "week": "Thursday",
+    "isOngoing": true,
+    "category": "剧情",
+    "description": "通过细腻的画风和深入的故事情节，这部剧情漫画探讨了社会问题和个人挣扎，展现了人物的内心世界。",
+    "title": "社会故事",
+    "image": "https://via.placeholder.com/150x200/000000/FFFFFF?text=Image27"
+  },
+  {
+    "id": 28,
+    "week": "Thursday",
+    "isOngoing": false,
+    "category": "奇幻",
+    "description": "进入一个充满魔法和神秘生物的世界，主角在这里展开了一系列奇幻冒险。故事中充满了魔法和未知的惊奇。",
+    "title": "神秘魔法",
+    "image": "https://via.placeholder.com/150x200/000000/FFFFFF?text=Image28"
+  },
+  {
+    "id": 29,
+    "week": "Thursday",
+    "isOngoing": true,
+    "category": "浪漫",
+    "description": "讲述了一段感人的爱情故事，主人公们在经历了重重困难后终于走到一起。充满了甜蜜的情节和感人的对话。",
+    "title": "爱情故事",
+    "image": "https://via.placeholder.com/150x200/000000/FFFFFF?text=Image29"
+  },
+  {
+    "id": 30,
+    "week": "Thursday",
+    "isOngoing": false,
+    "category": "悬疑",
+    "description": "悬疑漫画围绕一宗复杂案件展开，主角需要揭开谜团和发现隐藏的真相。每一章都充满了悬念和惊人的发现。",
+    "title": "谜案揭秘",
+    "image": "https://via.placeholder.com/150x200/000000/FFFFFF?text=Image30"
+  },
+  {
+    "id": 31,
+    "week": "Thursday",
+    "isOngoing": true,
+    "category": "科幻",
+    "description": "设定在未来的科幻漫画，讲述了人类在面对未知科技时的挑战。充满了未来幻想和激动人心的冒险。",
+    "title": "未来探险",
+    "image": "https://via.placeholder.com/150x200/000000/FFFFFF?text=Image31"
+  },
+  {
+    "id": 32,
+    "week": "Thursday",
+    "isOngoing": false,
+    "category": "历史",
+    "description": "通过生动的画风和细腻的叙述，这部漫画再现了历史上的重要事件。让你在享受故事的同时了解历史的变迁。",
+    "title": "历史故事",
+    "image": "https://via.placeholder.com/150x200/000000/FFFFFF?text=Image32"
+  }
+]
