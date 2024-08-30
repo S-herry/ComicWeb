@@ -57,7 +57,7 @@ const Layout = () => {
             <ul className=" flex flex-col md:p-0 items-center md:flex-row md:space-x-8 ">
               <li>
                 <Link
-                  to="/login"
+                  to="/register"
                   className="py-2 border border-yellow-300 rounded-md px-5 text-black bg-yellow-300 hover:bg-yellow-500"
                 >
                   註冊

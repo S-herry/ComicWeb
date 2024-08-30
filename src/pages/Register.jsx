@@ -1,47 +1,45 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import Input from "../components/common/Input";
 import Button from "../components/common/Button";
 import Post from "../URL/Post.json";
 import usePostFetch from "../hook/usePostFetch";
-const Login = () => {
-  const loginRef = useRef(null);
-  const [loginDate, fetchLoginDate] = usePostFetch({});
-  function handleLogin(event) {
-    event.preventDefault();
-    const loginData = new FormData(loginRef.current);
-    const data = Object.fromEntries(loginData.entries());
+const Register = () => {
+  const formRef = useRef(null);
 
-    fetchLoginDate({
-      url: Post.login,
+  const [postFetchData, PostFetchData] = usePostFetch(null);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(formRef.current);
+    const data = Object.fromEntries(formData.entries());
+    console.log("Sending data:", JSON.stringify(data));
+    PostFetchData({
+      url: Post.register,
       data: data,
     });
   }
-  useEffect(() => {
-    if (loginDate != undefined) {
-      localStorage.setItem("token", loginDate.token);
-    }
-  }, [loginDate]);
 
   return (
     <div className="text-xl  flex flex-col justify-center items-center h-screen  ">
       <div className="bg-white/50 w-1/3 p-5 rounded-lg flex flex-col justify-center items-center shadow-2xl shadow-white">
         <h1 className="text-4xl bg-yellow-200 p-5 rounded-lg my-10 text-black border-2 font-black  text-center ">
-          漫畫平台登入頁面
+          漫畫平台註冊頁面
         </h1>
         <form
-          ref={loginRef}
-          action={Post.login}
+          ref={formRef}
+          action={Post.register}
           method="POST"
           className="flex flex-col justify-center items-center w-1/3"
-          onSubmit={handleLogin}
+          onSubmit={handleSubmit}
         >
+          <Input label="姓名" className="mb-3" name="name" />
           <Input label="信箱" type="email" className="mb-3" name="email" />
-          <Input label="密碼" name="password" className="mb-3" />
+          <Input label="密碼" className="mb-3" name="password" />
           <Button
             type="submit"
             className=" bg-yellow-300 mt-5 px-5 py-2 text-white rounded-md"
           >
-            登入
+            註冊
           </Button>
         </form>
       </div>
@@ -49,4 +47,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

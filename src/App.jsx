@@ -4,6 +4,8 @@ import Login from "./pages/Login";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ComicInfo from "./components/comicInfo/ComicInfo";
+import Register from "./pages/Register";
+import User from "./pages/User";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,10 @@ const router = createBrowserRouter([
         path: `/comic`,
         element: <ComicInfo />,
       },
+      {
+        path: `/user`,
+        element: <User />,
+      },
     ],
   },
   {
@@ -24,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
       {
         path: "*",

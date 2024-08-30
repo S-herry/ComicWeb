@@ -1,13 +1,11 @@
 import React from "react";
 
-const Input = ({ label, name, id, className, ...props }) => {
+const Input = ({ label, name, id, className, type = "text", ...props }) => {
   return (
     <div className={`flex flex-col ${className}`}>
-      <label htmlFor={id} className={` `}>
-        {label}
-      </label>
+      <label htmlFor={id}>{label}</label>
       <input
-        type="text"
+        type={type}
         id={id}
         className="rounded-md w-80"
         name={name}
