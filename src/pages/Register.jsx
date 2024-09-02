@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Input from "../components/common/Input";
 import Button from "../components/common/Button";
 import Post from "../URL/Post.json";
@@ -18,6 +18,11 @@ const Register = () => {
       data: data,
     });
   }
+  useEffect(() => {
+    if (postFetchData != null && !postFetchData.repeat) {
+      window.location.href = "http://localhost:9000/login";
+    }
+  }, [postFetchData]);
 
   return (
     <div className="text-xl  flex flex-col justify-center items-center h-screen  ">

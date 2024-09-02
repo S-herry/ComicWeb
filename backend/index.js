@@ -39,7 +39,7 @@ app.post("/login", express.json(), async (req, res) => {
     });
 
     if (!user) {
-      return res.json({ error: "User not found" });
+      return res.json({ user: false, token: null });
     }
 
     const passwordMatch = await bcrypt.compare(password, user.password);
@@ -54,7 +54,10 @@ app.post("/login", express.json(), async (req, res) => {
         expiresIn: "1h",
       }
     );
-    res.json({ token: token });
+    res.json({
+      user: true,
+      token: token,
+    });
   } catch (err) {
     res.status(500).json({ error: "Login failed" });
   }
@@ -81,7 +84,7 @@ app.post("/register", express.json(), async (req, res, next) => {
       console.error(err);
       return res.status(500).json({ error: "Database Error" });
     }
-    res.redirect("http://localhost:9000/login");
+    res.json({ repeat: false });
   });
 });
 

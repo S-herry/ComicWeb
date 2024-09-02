@@ -19,6 +19,9 @@ const Login = () => {
   useEffect(() => {
     if (loginDate != undefined) {
       localStorage.setItem("token", loginDate.token);
+      if (loginDate.user) {
+        window.location.href = "http://localhost:9000/admin";
+      }
     }
   }, [loginDate]);
 
