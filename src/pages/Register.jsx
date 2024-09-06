@@ -1,11 +1,21 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useContext } from "react";
 import Input from "../components/common/Input";
 import Button from "../components/common/Button";
 import Post from "../URL/Post.json";
 import usePostFetch from "../hook/usePostFetch";
-const Register = () => {
-  const formRef = useRef(null);
+import { UsersContent } from "../context/user/UserContent";
+import { Link } from "react-router-dom";
 
+const Register = () => {
+  const { loggedIn } = useContext(UsersContent);
+
+  useEffect(() => {
+    if (loggedIn) {
+      window.location.href = "http://localhost:9000/";
+    }
+  }, [loggedIn]);
+
+  const formRef = useRef(null);
   const [postFetchData, PostFetchData] = usePostFetch(null);
 
   function handleSubmit(event) {
@@ -18,6 +28,7 @@ const Register = () => {
       data: data,
     });
   }
+
   useEffect(() => {
     if (postFetchData != null && !postFetchData.repeat) {
       window.location.href = "http://localhost:9000/login";
@@ -25,30 +36,58 @@ const Register = () => {
   }, [postFetchData]);
 
   return (
-    <div className="text-xl  flex flex-col justify-center items-center h-screen  ">
-      <div className="bg-white/50 w-1/3 p-5 rounded-lg flex flex-col justify-center items-center shadow-2xl shadow-white">
-        <h1 className="text-4xl bg-yellow-200 p-5 rounded-lg my-10 text-black border-2 font-black  text-center ">
-          漫畫平台註冊頁面
-        </h1>
-        <form
-          ref={formRef}
-          action={Post.register}
-          method="POST"
-          className="flex flex-col justify-center items-center w-1/3"
-          onSubmit={handleSubmit}
-        >
-          <Input label="姓名" className="mb-3" name="name" />
-          <Input label="信箱" type="email" className="mb-3" name="email" />
-          <Input label="密碼" className="mb-3" name="password" />
-          <Button
-            type="submit"
-            className=" bg-yellow-300 mt-5 px-5 py-2 text-white rounded-md"
-          >
-            註冊
-          </Button>
-        </form>
-      </div>
-    </div>
+    <>
+      {!loggedIn ? (
+        <div className="text-xl  flex flex-col justify-center items-center h-screen  ">
+          <div className="bg-white/50 w-1/3 p-5 rounded-lg flex flex-col justify-center items-center shadow-2xl shadow-white">
+            <h1 className="text-4xl bg-yellow-200 p-5 rounded-lg my-10 text-black border-2 font-black  text-center ">
+              漫畫平台註冊頁面
+            </h1>
+            <form
+              ref={formRef}
+              action={Post.register}
+              method="POST"
+              className="flex flex-col justify-center items-center w-1/3"
+              onSubmit={handleSubmit}
+            >
+              <Input label="姓名" className="mb-3" name="name" required />
+              <Input
+                label="信箱"
+                type="email"
+                className="mb-3"
+                name="email"
+                required
+              />
+              <Input label="密碼" className="mb-3" name="password" required />
+              <div className="flex  mt-5">
+                <Button
+                  type="submit"
+                  className=" bg-red-500 px-5 py-2 text-white rounded-md"
+                >
+                  註冊
+                </Button>
+                <Link
+                  to="/login"
+                  className=" bg-yellow-300 px-5 py-2 ms-5 text-white rounded-md"
+                >
+                  登入
+                </Link>
+              </div>
+
+              <span
+                className={`${
+                  postFetchData != null && postFetchData.repeat
+                    ? " opacity-100"
+                    : "opacity-0"
+                } text-red-500 font-black bg-white mt-5 px-3 py-2 rounded-lg`}
+              >
+                信箱已註冊過
+              </span>
+            </form>
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 };
 

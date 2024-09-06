@@ -1,8 +1,8 @@
+import { useState } from "react";
 import { faVolumeHigh, faVolumeXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import Button from "../common/Button";
-import { useState } from "react";
+import Icon from "../common/Icon";
 const VideoCard = ({ videoUri, videoName = "漫畫名稱", props }) => {
   const [sound, setSound] = useState(false);
 
@@ -16,12 +16,12 @@ const VideoCard = ({ videoUri, videoName = "漫畫名稱", props }) => {
           })
         }
       >
-        <FontAwesomeIcon icon={sound ? faVolumeHigh : faVolumeXmark} />
+        <Icon icon={sound ? faVolumeHigh : faVolumeXmark} />
       </Button>
       <h2 className="absolute bg-black opacity-65 font-bold text-white rounded-lg  px-4 py-3">
         {videoName}
       </h2>
-      <Link to="/admin">
+      <Link to="/">
         <video
           src={videoUri}
           loop

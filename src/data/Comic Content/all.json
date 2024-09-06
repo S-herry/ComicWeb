@@ -1,0 +1,320 @@
+{
+  "Adventure": {
+    "type": "冒險",
+    "manga": [
+      {
+        "id": 1,
+        "title": "異世界的冒險者",
+        "image": "https://taiwan-image.bookwalker.com.tw/product/86687/zoom_big_86687.jpg",
+        "description": "普通上班族一郎被召喚到異世界，成為一名冒險者，展開了驚險的旅程。",
+        "category": "異世界",
+        "is_completed": false
+      },
+      {
+        "id": 2,
+        "title": "時間旅行者的戀歌",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5UfMf6EOnND1EnTJ_KrHbLfiAQXddnKgE5g&s",
+        "description": "科學家真一發現了時間旅行的方法，並在過去遇見了命中註定的戀人。",
+        "category": "科幻",
+        "is_completed": true
+      },
+      {
+        "id": 3,
+        "title": "末日倖存者",
+        "image": "https://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20180115/868f193dba234a12bfb4aa4753a2e58e.jpeg",
+        "description": "在一場全球災難後，健太和一群倖存者必須合作求生，並尋找重建文明的方法。",
+        "category": "末世",
+        "is_completed": false
+      },
+      {
+        "id": 4,
+        "title": "忍者的復仇之路",
+        "image": "https://p0.itc.cn/q_70/images03/20210804/4811c16aac2041f79578daa57508e00b.jpeg",
+        "description": "年輕的忍者曉在家族被敵對勢力滅門後，踏上了復仇之路，並逐漸揭開陰謀的真相。",
+        "category": "武俠",
+        "is_completed": true
+      },
+      {
+        "id": 5,
+        "title": "超能學院",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyWp-p-L4dJfksunoUExN5wvRJjiAJJONTgA&s",
+        "description": "在一所專為擁有超能力的學生設立的學院裡，蓮展現了他驚人的力量，並與同學們一起對抗邪惡勢力。",
+        "category": "超能力",
+        "is_completed": false
+      },
+      {
+        "id": 6,
+        "title": "偵探與怪盜的追逐",
+        "image": "https://i.pinimg.com/236x/c0/96/95/c0969548358571305370b44d7efd6caf.jpg",
+        "description": "天才偵探光和神秘怪盜影在城市中展開了智慧與計謀的對決。",
+        "category": "懸疑",
+        "is_completed": true
+      }
+    ]
+  },
+  "BL": {
+    "type": "BL",
+    "manga": [
+      {
+        "id": 1,
+        "title": "鋼琴師的心弦",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG9dC_gE-ZSGnWcwxdybMqG1XHOoGA_Lrr9g&s",
+        "description": "鋼琴師遼與他的新任小提琴手悠相遇，音樂讓他們的心靈產生了微妙的共鳴。",
+        "category": "音樂",
+        "is_completed": false
+      },
+      {
+        "id": 2,
+        "title": "廢墟中的暖陽",
+        "image": "https://images.vocus.cc/17966820-0cb4-45b7-ba12-525c2c415074.jpg",
+        "description": "在末世的廢墟中，直樹與翔意外相遇，兩人在尋找生存希望的過程中互相依靠。",
+        "category": "末世",
+        "is_completed": true
+      },
+      {
+        "id": 3,
+        "title": "咖啡香中的秘密",
+        "image": "https://images.vocus.cc/39822044-4509-4ccc-9ac6-80914f80aa82.jpg",
+        "description": "咖啡館老闆圭一與常客蓮之間的關係在每天的咖啡香中逐漸加深，隱藏的秘密也隨之揭開。",
+        "category": "日常",
+        "is_completed": false
+      },
+      {
+        "id": 4,
+        "title": "探險家的浪漫",
+        "image": "https://down-tw.img.susercontent.com/file/ca5ce94f632ff0ca8eaff582200d2460",
+        "description": "兩名探險家航一和拓海在未知的土地上展開冒險，愛情在挑戰與發現中萌芽。",
+        "category": "冒險",
+        "is_completed": false
+      },
+      {
+        "id": 5,
+        "title": "雙重生活的彼岸",
+        "image": "https://images.vocus.cc/f491ee0a-2a9d-4088-a0ba-1a7a98436352.jpg",
+        "description": "白天是精英律師，夜晚是神秘畫家的真司，與同樣雙重身份的健一陷入一段複雜的情感糾葛。",
+        "category": "懸疑",
+        "is_completed": true
+      },
+      {
+        "id": 6,
+        "title": "星空下的邂逅",
+        "image": "https://images.vocus.cc/59c030e8-b54a-4a7a-964d-efa81c371398.jpg",
+        "description": "天文學家遙與攝影師光在追逐流星的旅途中相識，兩人的關係在星空下漸漸發展。",
+        "category": "浪漫",
+        "is_completed": true
+      }
+    ]
+  },
+  "cure": {
+    "type": "治癒",
+    "manga": [
+      {
+        "id": 1,
+        "title": "貓咪咖啡館的日常",
+        "image": "https://cdn.pixabay.com/photo/2022/08/27/09/16/design-7414038_1280.jpg",
+        "description": "小春在一間貓咪咖啡館打工，每天都被可愛的貓咪和顧客們的趣事圍繞。",
+        "category": "治癒",
+        "is_completed": false
+      },
+      {
+        "id": 2,
+        "title": "鄉村小屋的悠閒時光",
+        "image": "https://live.staticflickr.com/659/20906730856_efc2f66b68_c.jpg",
+        "description": "都市女孩紗羅搬到鄉下的小屋，開始了種菜、做飯和與自然共處的放鬆生活。",
+        "category": "田園",
+        "is_completed": true
+      },
+      {
+        "id": 3,
+        "title": "快樂的甜點時光",
+        "image": "https://image.cdn2.seaart.ai/2024-03-19/cnstrm5e878c73bvgheg/b6498ddc746ed2bf432e40a0d657ebdbc8e2de8e_high.webp",
+        "description": "甜點師莉奈和她的朋友們在甜品店裡一起創作美味的甜點，享受每一個快樂的瞬間。",
+        "category": "美食",
+        "is_completed": false
+      },
+      {
+        "id": 4,
+        "title": "午后的午後茶",
+        "image": "https://image.cdn2.seaart.ai/2024-01-20/cmm1u9te878c73a8u840/cdc357eb1624badb58077ecadf6f92b50ac05871_high.webp",
+        "description": "小夏和朋友們定期舉辦下午茶聚會，分享生活中的小確幸和甜點。",
+        "category": "友情",
+        "is_completed": true
+      },
+      {
+        "id": 5,
+        "title": "在街角的小書店",
+        "image": "https://images.vocus.cc/a1d70142-16c6-4c38-affc-dcfd9c42bdaa.jpg",
+        "description": "小智在街角經營一家小書店，和顧客們分享書籍的樂趣與故事。",
+        "category": "文學",
+        "is_completed": false
+      },
+      {
+        "id": 6,
+        "title": "鄰居家的小狗",
+        "image": "https://thumbs.dreamstime.com/b/%E5%A4%8D%E5%8F%A4%E6%BC%AB%E5%A8%81%E6%BC%AB%E7%94%BB%E5%B0%81%E9%9D%A2-%E5%8D%A1%E5%B0%94%E5%8A%A0%E9%87%8C%E9%98%BF%E5%B0%94%E4%BC%AF%E5%A1%94%E7%9C%81-%E5%B9%B4-%E6%9C%88-%E6%97%A5-278618265.jpg",
+        "description": "小圓每天都去拜訪鄰居家的小狗，逐漸成為牠最好的朋友。",
+        "category": "動物",
+        "is_completed": true
+      }
+    ]
+  },
+  "Supernatural": {
+    "type": "靈異",
+    "manga": [
+      {
+        "id": 1,
+        "title": "虛擬世界的邊緣",
+        "image": "https://www.mx-fm.com/upfile/xsfm/202407/2024072032247513.jpg",
+        "description": "高中生湊在最新的虛擬實境遊戲中意外發現了遊戲與現實世界的交界點，並捲入了驚天陰謀。",
+        "category": "科技",
+        "is_completed": false
+      },
+      {
+        "id": 2,
+        "title": "古城的秘密",
+        "image": "https://shop.r10s.jp/book/cabinet/7166/9784866577166_1_2.jpg",
+        "description": "考古學家綾香在探索古城遺跡時，發現了隱藏千年的秘密，並展開了一段神秘的冒險。",
+        "category": "冒險",
+        "is_completed": false
+      },
+      {
+        "id": 3,
+        "title": "靈異偵探社",
+        "image": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/085/44/0010854427.jpg&v=5e846d35k&w=375&h=375",
+        "description": "靈異偵探社的成員們專門調查都市傳說和超自然事件，他們不僅要面對靈異現象，還要解開背後的真相。",
+        "category": "靈異",
+        "is_completed": false
+      },
+      {
+        "id": 4,
+        "title": "藝術家的謎團",
+        "image": "https://www.hmecy.com/wp-content/uploads/2022/07/20220730_62e4ff02344aa.jpg",
+        "description": "年輕的藝術家楓在追尋靈感的過程中，逐漸發現自己被捲入了一場與古老畫作有關的神秘事件。",
+        "category": "懸疑",
+        "is_completed": false
+      },
+      {
+        "id": 5,
+        "title": "遺忘之島的謎題",
+        "image": "https://cdn.kdkw.jp/cover_1000/322210/322210000930.jpg",
+        "description": "一群冒險者來到一個神秘的遺忘之島，試圖解開其中的古老謎題，並尋找失落的寶藏。",
+        "category": "探險",
+        "is_completed": false
+      },
+      {
+        "id": 6,
+        "title": "未來的回憶",
+        "image": "https://img.zcool.cn/community/010cbf6513a668000c291000baec21.jpg?imageMogr2/auto-orient/thumbnail/520x390r%3E/gravity/center/crop/520x390/sharpen/0.5/quality/80",
+        "description": "在不遠的未來，人們可以選擇保存和觀看自己的回憶，而主角悠斗卻發現了這項技術的背後暗藏陰謀。",
+        "category": "科幻",
+        "is_completed": false
+      }
+    ]
+  },
+  "love": {
+    "type": "愛情",
+    "manga": [
+      {
+        "id": 1,
+        "title": "夏日微風的告白",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4K9hoMznJYTCULst68d4cliWGV49AA8hB9g&s",
+        "description": "高中生陽奈在暑假中鼓起勇氣向青梅竹馬的拓海告白，他們的關係因此發生了微妙的變化。",
+        "category": "浪漫愛情",
+        "is_completed": true
+      },
+      {
+        "id": 2,
+        "title": "冬夜下的牽絆",
+        "image": "https://dosbg3xlm0x1t.cloudfront.net/images/items/9784088921310/1200/9784088921310.jpg",
+        "description": "在雪花飄落的城市中，紗雪和凌意外重逢，他們之間未解的情感再次浮現。",
+        "category": "浪漫愛情",
+        "is_completed": false
+      },
+      {
+        "id": 3,
+        "title": "雨中的秘密約定",
+        "image": "https://i0.wp.com/acp.idv.tw/wp-content/uploads/444487862_476444194917286_4257625653180151509_n.jpg?ssl=1",
+        "description": "莉音和修輔在大學校園裡的一場雨中重新相遇，並重溫了他們在高中時期的秘密約定。",
+        "category": "浪漫愛情",
+        "is_completed": true
+      },
+      {
+        "id": 4,
+        "title": "晨光中的愛戀",
+        "image": "https://upload.wikimedia.org/wikipedia/zh/thumb/1/14/%E7%A7%81%E3%81%9F%E3%81%A1%E3%81%AF%E3%81%A9%E3%81%86%E3%81%8B%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B.jpg/220px-%E7%A7%81%E3%81%9F%E3%81%A1%E3%81%AF%E3%81%A9%E3%81%86%E3%81%8B%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B.jpg",
+        "description": "咖啡館的店員美香和常客透之間的日常互動漸漸發展成為一段溫暖的愛情。",
+        "category": "浪漫愛情",
+        "is_completed": false
+      },
+      {
+        "id": 5,
+        "title": "落葉歸根的邂逅",
+        "image": "https://storage.googleapis.com/comic-star-prod/fs/cover/09c268fa-c69a-41a8-ba2f-c7a22fb6fae7.jpg",
+        "description": "千春在一個秋日午後與昔日戀人誠相遇，兩人試圖找回失去的時光。",
+        "category": "浪漫愛情",
+        "is_completed": false
+      },
+      {
+        "id": 6,
+        "title": "星光下的初吻",
+        "image": "https://i0.wp.com/acp.idv.tw/wp-content/uploads/2c9b74536881199b29e3495e4f057d28.jpg?ssl=1",
+        "description": "在夏季的祭典上，莉子和優雅第一次互相告白，星空見證了他們的初吻。",
+        "category": "浪漫愛情",
+        "is_completed": true
+      }
+    ]
+  },
+  "youth": {
+    "type": "青春",
+    "manga": [
+      {
+        "id": 1,
+        "title": "星夜下的秘密花園",
+        "image": "https://www.tohan.com.tw/data/goods/gallery_org/202204/1650935750951693245.jpg",
+        "description": "綾音發現了一個夜晚才會出現的奇幻花園，並遇見了守護者蓮，展開跨越時空的愛戀。",
+        "category": "幻想愛情",
+        "is_completed": false
+      },
+      {
+        "id": 2,
+        "title": "雨中的甜蜜旋律",
+        "image": "https://www.books.com.tw/img/001/067/02/0010670201.jpg",
+        "description": "美琴遇見神秘少年奏一，在雨天的咖啡館中重新燃起對鋼琴的熱愛，決心挑戰音樂比賽。",
+        "category": "校園愛情",
+        "is_completed": false
+      },
+      {
+        "id": 3,
+        "title": "那天，我們一起看星星",
+        "image": "https://img.acgn.cc/img/430600/430506/1.jpg",
+        "description": "夏月和好友們參加觀星活動，共同度過了難忘的青春夏天，並找到了屬於自己的未來。",
+        "category": "青春成長",
+        "is_completed": true
+      },
+      {
+        "id": 4,
+        "title": "櫻花飄落的約定",
+        "image": "https://image.cdn2.seaart.ai/2024-01-21/cmmpe55e878c73bh24ng/2462a96139c1b31a8758cf9446b1b8bb7da0c200_high.webp",
+        "description": "遙子遇見尋找童年約定的湊，隨著記憶重現，他們的命運被緊密相連。",
+        "category": "浪漫愛情",
+        "is_completed": false
+      },
+      {
+        "id": 5,
+        "title": "光與影的交錯",
+        "image": "https://i.pinimg.com/236x/44/64/2c/44642cd787189e18f2d679dbb8ab1cba.jpg",
+        "description": "冷漠的紫苑能看到他人內心陰影，與學長光也的相遇讓她重新認識自己。",
+        "category": "神秘愛情",
+        "is_completed": true
+      },
+      {
+        "id": 6,
+        "title": "夢境中的他和她",
+        "image": "https://gd-hbimg.huaban.com/5d1f58c41fc08f2be3b4b1e5310b7865639c1011b947-HItUUf_fw658",
+        "description": "真奈夢見未來將發生的事，直到遇見與夢中少年相似的轉學生晴斗。",
+        "category": "奇幻愛情",
+        "is_completed": false
+      }
+    ]
+  }
+}

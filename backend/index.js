@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 
 const DB = require("./DB");
-
 const app = express();
 const hostname = "127.0.0.1";
 const port = 3000;
@@ -13,13 +12,12 @@ app.use(cors());
 const authenticateJWT = (req, res, next) => {
   // 从请求头中获取 Token
   const token = req.headers["authorization"]?.split(" ")[1];
-  if (token == null)
-    return res.status(401).json({ error: "No token provided" });
+  if (token == undefined || token == null)
+    return res.json({ user: false, error: "No token provided" });
 
   jwt.verify(token, "chick", (err, user) => {
     if (err) {
-      console.error("Token verification failed:", err); // 添加日志记录
-      return res.status(403).json({ error: "Forbidden" }); // 返回更具体的错误信息
+      return res.json({ user: false, error: "Forbidden" }); // 返回更具体的错误信息
     }
     req.user = user;
     next();
@@ -30,67 +28,131 @@ app.post("/login", express.json(), async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const userSql = `SELECT * FROM comicweb.users WHERE users.email = ?`;
-    const user = await new Promise((resolve, reject) => {
-      DB.query(userSql, [email], async (err, results) => {
-        if (err) return reject(err);
-        await resolve(results[0]); // 確保返回單個用戶對象
-      });
+    const user = await DB.User.findOne({
+      where: { email: email },
     });
 
-    if (!user) {
-      return res.json({ user: false, token: null });
+    // 檢查是否有使用者存在
+    if (user.length === 0) {
+      return res.status(401).json({ user: false, token: null });
     }
 
     const passwordMatch = await bcrypt.compare(password, user.password);
     if (!passwordMatch) {
-      res.status(401).json({ error: "Invalid credentials" });
+      return res
+        .status(401)
+        .json({ user: false, error: "Invalid credentials" });
     }
 
     const token = jwt.sign(
       { userId: user.id, name: user.name, email: user.email },
       "chick",
-      {
-        expiresIn: "1h",
-      }
+      { expiresIn: "1h" }
     );
+
     res.json({
       user: true,
       token: token,
     });
   } catch (err) {
-    res.status(500).json({ error: "Login failed" });
+    res.json({
+      user: false,
+    });
+    //   res.status(500).json({ error: "Login failed" });
   }
 });
 
-app.post("/register", express.json(), async (req, res, next) => {
-  let { name, email, password } = req.body;
+app.post("/register", express.json(), async (req, res) => {
+  const { name, email, password } = req.body;
   try {
+    const existingUser = await DB.User.findOne({ where: { email } });
+    if (existingUser) {
+      return res.json({ repeat: true });
+    }
+
+    // 哈希密碼
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    password = hashedPassword;
+
+    // 創建新使用者
+    const newUser = await DB.User.create({
+      name,
+      email,
+      password: hashedPassword,
+    });
+
+    res.json({ repeat: false, user: newUser });
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ error: "Internal Server Error" });
+    // res.status(500).json({ error: "Internal Server Error" });
   }
-
-  let sql = `insert into users(name, email, password) values (?,?,?)`;
-  const values = [name, email, password];
-  DB.query(sql, values, function (err, result) {
-    if (err) {
-      if (err.code === "ER_DUP_ENTRY") {
-        return res.json({ repeat: true });
-      }
-      console.error(err);
-      return res.status(500).json({ error: "Database Error" });
-    }
-    res.json({ repeat: false });
-  });
 });
 
 app.get("/user", authenticateJWT, (req, res) => {
-  console.log(req.user);
-  res.json(req.user);
+  try {
+    res.json({ user: true, userData: req.user });
+  } catch (err) {
+    res.json({ user: false });
+  }
+});
+
+app.get("/comic/:id", authenticateJWT, async (req, res) => {
+  let id = req.params.id;
+  try {
+    const comic = await DB.Comic.findByPk(id, {
+      include: {
+        model: DB.ComicList,
+        where: { comicId: id },
+      },
+    });
+
+    if (comic) {
+      res.json(comic);
+      if (comic.ComicLists.length > 0) {
+        comic.ComicLists[0];
+      } else {
+        res.json("ComicList found");
+      }
+    } else {
+      res.json("Comic not found");
+    }
+  } catch (error) {
+    res.json({ "Error fetching specific comic and list:": error });
+  }
+});
+
+app.get("/comiclist/:number", async (req, res) => {
+  try {
+    const number = parseInt(req.params.number, 10);
+
+    const randomComics = await DB.Comic.findAll({
+      limit: number,
+      order: [[DB.sequelize.fn("RAND")]],
+      include: {
+        model: DB.ComicList,
+        attributes: ["description"], // 确保这些字段在 ComicList 模型中存在
+      },
+    });
+
+    res.json(randomComics);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server Error");
+  }
+});
+
+app.get("/anno/:number", async (req, res) => {
+  try {
+    const number = parseInt(req.params.number, 10);
+    const randomAnno = await DB.Announcement.findAll({
+      limit: number,
+      order: [[DB.sequelize.fn("RAND")]],
+    });
+    res.json(randomAnno);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server Error");
+  }
 });
 
 app.listen(port, hostname, () => {

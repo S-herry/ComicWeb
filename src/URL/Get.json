@@ -1,3 +1,6 @@
 {
-  "user": "http://localhost:3000/user"
+  "user": "http://localhost:3000/user",
+  "comic": "http://localhost:3000/comic/{id}",
+  "comicList": "http://localhost:3000/comiclist/{number}",
+  "anno": "http://localhost:3000/anno/{number}"
 }

@@ -1,6 +1,6 @@
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "../common/Button";
+import Icon from "../common/Icon";
 const ComicList = () => {
   return (
     <div className=" flex bg-white/80 rounded-md">
@@ -15,10 +15,7 @@ const ComicList = () => {
           <h4 className=" text-lg">第一話 美術館</h4>
           <h4 className=" text-sm text-gray-500">2024-04-16 更新</h4>
           <div className="flex items-center mt-3">
-            <FontAwesomeIcon
-              icon={faThumbsUp}
-              className="text-red-500  text-2xl"
-            />
+            <Icon icon={faThumbsUp} className="text-red-500  text-2xl" />
             <h3 className=" ms-2 text-red-500 ">123456</h3>
           </div>
         </div>

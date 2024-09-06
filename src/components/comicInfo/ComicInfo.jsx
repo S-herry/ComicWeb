@@ -5,11 +5,11 @@ import {
   faEye,
   faThumbsUp,
 } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import Tab from "../common/Tab";
 import Button from "../common/Button";
 import ComicList from "./ComicList";
+import Icon from "../common/Icon";
 const ComicInfo = () => {
   const [heard, setHeard] = useState(false);
 
@@ -29,7 +29,7 @@ const ComicInfo = () => {
           </p>
           <div>
             <span className="border-2  bg-yellow-200 p-1 rounded-md me-3">
-              <FontAwesomeIcon
+              <Icon
                 icon={faBell}
                 style={{ color: "#fe5858", paddingRight: "5px" }}
                 size="md"
@@ -47,15 +47,11 @@ const ComicInfo = () => {
           </p>
           <div className="flex items-center text-center mt-5">
             <div className="flex items-center">
-              <FontAwesomeIcon icon={faEye} className=" text-white" size="xl" />
+              <Icon icon={faEye} className=" text-white" size="xl" />
               <h3 className="text-white ms-2">123456</h3>
             </div>
             <div className="flex items-center ms-5">
-              <FontAwesomeIcon
-                icon={faThumbsUp}
-                className="text-lime-400"
-                size="xl"
-              />
+              <Icon icon={faThumbsUp} className="text-lime-400" size="xl" />
               <h3 className=" ms-2 text-lime-400 ">123456</h3>
             </div>
           </div>
@@ -64,7 +60,7 @@ const ComicInfo = () => {
               繼續閱讀
             </Button>
             <Button className="bg-white/20  rounded-full flex justify-center items-center p-3 me-5">
-              <FontAwesomeIcon
+              <Icon
                 icon={faArrowUpRightFromSquare}
                 className=" text-white "
                 size="xl"
@@ -74,7 +70,7 @@ const ComicInfo = () => {
               className="bg-white/20 rounded-full flex justify-center items-center p-3 me-5"
               onClick={() => setHeard(!heard)}
             >
-              <FontAwesomeIcon
+              <Icon
                 icon={faHeart}
                 className={` ${heard ? "text-red-500" : "text-white"}`}
                 size="xl"

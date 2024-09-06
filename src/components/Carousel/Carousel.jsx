@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import image from "../../data/image.json";
 import { faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import Icon from "../common/Icon";
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const goToNextSlide = () => {
@@ -35,9 +35,10 @@ const Carousel = () => {
         className="absolute left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         onClick={goToPrevSlide}
       >
-        <FontAwesomeIcon
+        <Icon
           icon={faAngleLeft}
-          className="text-white font-extrabold text-xl bg-white/70 p-4 w-5 rounded-full"
+          size="xl"
+          className="text-white font-extrabold bg-white/70 p-4 w-5 rounded-full"
         />
       </button>
 
@@ -62,9 +63,10 @@ const Carousel = () => {
         className="absolute right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         onClick={goToNextSlide}
       >
-        <FontAwesomeIcon
+        <Icon
           icon={faAngleRight}
-          className="text-white font-extrabold text-xl bg-white/70 p-4 w-5 rounded-full"
+          size="xl"
+          className="text-white font-extrabold bg-white/70 p-4 w-5 rounded-full"
         />
       </button>
     </div>

@@ -1,13 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import RecommendCard from "./RecommendCard";
-import ValentineDay from "../../data/Comic Content/ValentineDay.json";
-import RomanticLove from "../../data/Comic Content/RomanticLove.json";
-import Easy from "../../data/Comic Content/Easy.json";
-import BLComics from "../../data/Comic Content/BLComics.json";
-import Exclusive from "../../data/Comic Content/Exclusive.json";
-import Serialization from "../../data/Comic Content/Serialization.json";
+import useGetFetch from "../../hook/useGetFetch";
 import Div from "../common/Div";
+import Get from "../../URL/Get.json";
 
 const menu = [
   {
@@ -44,31 +40,20 @@ const menu = [
 
 const BookList = () => {
   const [bookTab, setBookTab] = useState("情人節專屬");
-  const [bookTabData, setBookTabData] = useState(ValentineDay);
+  const [ComicBookList, GetComicBookList] = useGetFetch(null);
+
+  const handleGetComicList = () => {
+    GetComicBookList({
+      url: Get.comicList.replace("{number}", 6),
+    });
+  };
+
+  useEffect(() => {
+    handleGetComicList();
+  }, []);
 
   function OnChangeBookTab(tab) {
-    switch (tab) {
-      case "情人節專屬":
-        setBookTabData(ValentineDay);
-        break;
-      case "浪漫愛情推薦":
-        setBookTabData(RomanticLove);
-        break;
-      case "輕鬆搞笑推薦":
-        setBookTabData(Easy);
-        break;
-      case "BL漫畫推薦":
-        setBookTabData(BLComics);
-        break;
-      case "獨家漫畫推薦":
-        setBookTabData(Exclusive);
-        break;
-      case "連載最新番":
-        setBookTabData(Serialization);
-        break;
-      default:
-        break;
-    }
+    handleGetComicList();
   }
 
   return (
@@ -123,18 +108,20 @@ const BookList = () => {
       <div
         className={`flex  flex-wrap lg:flex-nowrap justify-center items-center  lg:rounded-tr-none `}
       >
-        {bookTabData.manga.map((item, index) => {
-          return (
-            <RecommendCard
-              key={item.id}
-              title={item.title}
-              image={item.image}
-              category={item.category}
-              is_completed={item.is_completed}
-              description={item.description}
-            />
-          );
-        })}
+        {ComicBookList != null
+          ? ComicBookList.map((item, index) => {
+              return (
+                <RecommendCard
+                  key={"RecommendCard" + index}
+                  title={item.comicName}
+                  image={item.image}
+                  category={item.category}
+                  is_completed={item.is_completed}
+                  description={item.ComicLists[0].description}
+                />
+              );
+            })
+          : null}
       </div>
     </Div>
   );

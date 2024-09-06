@@ -5,11 +5,9 @@ const useGetFetch = () => {
   const [error, setError] = useState(null);
 
   const fetchRequest = useCallback(async ({ url, data = {} }) => {
+    let token = document.cookie.split("token=")[1]?.split(";")[0];
+    if (token == undefined || token == null) token = null;
     let newUrl = url;
-    const token = localStorage.getItem("token")
-      ? `Bearer ${localStorage.getItem("token")}`
-      : "";
-
     if (Object.keys(data).length !== 0) {
       const formData = Object.keys(data)
         .map(
@@ -40,8 +38,7 @@ const useGetFetch = () => {
       const result = (await string) === "" ? {} : JSON.parse(string);
       setGetFetchData(result);
     } catch (err) {
-      console.error("Fetch error:", err);
-      setError(err.message); // 可以通过 error 状态处理错误信息
+      setError(err.message);
     }
   }, []);
 
