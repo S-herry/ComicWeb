@@ -3,17 +3,15 @@ import Input from "../components/common/Input";
 import Button from "../components/common/Button";
 import Post from "../URL/Post.json";
 import usePostFetch from "../hook/usePostFetch";
-import { UsersContent } from "../context/user/UserContent";
 import { Link } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 const Register = () => {
-  const { loggedIn } = useContext(UsersContent);
-
+  const isLogin = useSelector((state) => state.user.isLogin);
   useEffect(() => {
-    if (loggedIn) {
+    if (isLogin) {
       window.location.href = "http://localhost:9000/";
     }
-  }, [loggedIn]);
+  }, [isLogin]);
 
   const formRef = useRef(null);
   const [postFetchData, PostFetchData] = usePostFetch(null);
@@ -37,7 +35,7 @@ const Register = () => {
 
   return (
     <>
-      {!loggedIn ? (
+      {!isLogin ? (
         <div className="text-xl  flex flex-col justify-center items-center h-screen  ">
           <div className="bg-white/50 w-1/3 p-5 rounded-lg flex flex-col justify-center items-center shadow-2xl shadow-white">
             <h1 className="text-4xl bg-yellow-200 p-5 rounded-lg my-10 text-black border-2 font-black  text-center ">

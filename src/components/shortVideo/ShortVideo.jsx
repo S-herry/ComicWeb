@@ -10,7 +10,7 @@ const ShortVideo = () => {
           <span className=" text-red-900 font-black text-3xl">！！</span>
         </h2>
         <Button className="ms-auto  px-5 m-5 rounded-md border-2 border-black">
-          看更多
+          看更多...
         </Button>
       </div>
       <div className="flex flex-row flex-wrap">

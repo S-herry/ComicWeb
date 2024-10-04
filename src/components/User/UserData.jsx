@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Button from "../common/Button";
-import Form from "../Model/Form";
+import Form from "../model/Form";
 import UserInput from "./UserInput";
 import { useSpring, animated, useTransition } from "@react-spring/web";
 const UserData = ({ userDate }) => {
@@ -11,15 +11,18 @@ const UserData = ({ userDate }) => {
     setChangeData(!changeData);
     setChangePassword(false);
   }
+
   function handleChangePassword() {
     setChangePassword(!changePassword);
     setChangeData(false);
   }
+
   const transitions = useTransition(changeData, {
     from: { opacity: 0 },
     enter: { opacity: 1, config: { duration: 100 } },
     leave: { opacity: 0, config: { duration: 100 } },
   });
+
   const changePasswordTransitions = useTransition(changePassword, {
     from: { opacity: 0, transform: "scale(0.8)" }, // 初始狀態：縮小
     enter: { opacity: 1, transform: "scale(1)" }, // 顯示狀態：正常大小

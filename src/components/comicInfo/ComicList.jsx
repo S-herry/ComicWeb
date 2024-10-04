@@ -3,7 +3,7 @@ import Button from "../common/Button";
 import Icon from "../common/Icon";
 const ComicList = () => {
   return (
-    <div className=" flex bg-white/80 rounded-md">
+    <li className=" flex bg-white/80 rounded-md">
       <div className="w-1/4">
         <img
           src="https://stickershop.line-scdn.net/stickershop/v1/product/24184346/LINEStorePC/main.png"
@@ -25,7 +25,7 @@ const ComicList = () => {
           </Button>
         </div>
       </div>
-    </div>
+    </li>
   );
 };
 

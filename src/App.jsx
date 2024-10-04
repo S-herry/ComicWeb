@@ -6,14 +6,9 @@ import NotFound from "./pages/NotFound";
 import ComicInfo from "./components/comicInfo/ComicInfo";
 import Register from "./pages/Register";
 import User from "./pages/User";
-import UserContent from "../src/context/user/UserContent";
 const router = createBrowserRouter([
   {
-    element: (
-      <UserContent>
-        <Layout />
-      </UserContent>
-    ),
+    element: <Layout />,
     children: [
       {
         path: "/",
@@ -25,11 +20,7 @@ const router = createBrowserRouter([
       },
       {
         path: `/user`,
-        element: (
-          <UserContent>
-            <User />
-          </UserContent>
-        ),
+        element: <User />,
       },
     ],
   },
@@ -37,19 +28,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/login",
-        element: (
-          <UserContent>
-            <Login />
-          </UserContent>
-        ),
+        element: <Login />,
       },
       {
         path: "/register",
-        element: (
-          <UserContent>
-            <Register />
-          </UserContent>
-        ),
+        element: <Register />,
       },
       {
         path: "*",

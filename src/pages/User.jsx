@@ -1,31 +1,24 @@
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { UsersContent } from "../context/user/UserContent";
-import GetUrl from "../URL/Get.json";
-import useGetFetch from "../hook/useGetFetch";
 import Icon from "../components/common/Icon";
 import UserDataEdit from "../components/User/UserData";
 import Keep from "../components/User/Keep";
 import Message from "../components/User/Message";
 import Browse from "../components/User/Browse";
-
+import { useSelector } from "react-redux";
 const tabList = ["帳戶", "作品收藏", "瀏覽紀錄", "我的留言"];
 
 const User = () => {
-  const { userData, loggedIn } = useContext(UsersContent);
-  const [userDate, setUserDate] = useGetFetch(null);
-  useEffect(() => {
-    setUserDate({ url: GetUrl.user });
-  }, []);
+  const user = useSelector((state) => state.user.user);
+  const isLogin = useSelector((state) => state.user.isLogin);
+  const [activeTab, setActiveTab] = useState("帳戶");
 
   useEffect(() => {
-    if (userData != null && !userData.user) {
-      window.location.href = "http://localhost:9000/";
+    if (!isLogin) {
+      window.location.href = "http://localhost:9000/login";
     }
-  }, [userData, loggedIn]);
-
-  const [activeTab, setActiveTab] = useState("我的留言");
+  }, [isLogin]);
 
   return (
     <section className="flex flex-col justify-center items-center">
@@ -48,7 +41,7 @@ const User = () => {
         </ul>
         <div className="p-6 bg-gray-100  text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-full  ">
           <div className=" flex flex-col justify-center bg-white/30 shadow-md rounded-lg  shadow-white  ">
-            {activeTab === "帳戶" && <UserDataEdit userDate={userDate} />}
+            {activeTab === "帳戶" && <UserDataEdit userDate={user} />}
             {activeTab === "作品收藏" && <Keep />}
             {activeTab === "瀏覽紀錄" && <Message />}
             {activeTab === "我的留言" && <Browse />}

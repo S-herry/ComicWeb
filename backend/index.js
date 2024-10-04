@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-
+const session = require("express-session"); // 引入 express-session
+const { OAuth2Client } = require("google-auth-library");
 const DB = require("./DB");
 const app = express();
 const hostname = "127.0.0.1";
@@ -8,7 +9,12 @@ const port = 3000;
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+app.use(express.json());
 app.use(cors());
+const CLIENT_ID =
+  "628247640283-bmpcl3ro32alr1jmg04v6irpdoc3s8bg.apps.googleusercontent.com";
+const client = new OAuth2Client(CLIENT_ID);
+
 const authenticateJWT = (req, res, next) => {
   // 从请求头中获取 Token
   const token = req.headers["authorization"]?.split(" ")[1];
@@ -23,6 +29,27 @@ const authenticateJWT = (req, res, next) => {
     next();
   });
 };
+
+// 使用 POST 請求來處理 Google OAuth 認證
+app.post("/auth/google", async (req, res) => {
+  const { id_token } = req.body;
+
+  try {
+    const ticket = await client.verifyIdToken({
+      idToken: id_token,
+      audience: CLIENT_ID,
+    });
+
+    const payload = ticket.getPayload();
+    console.log("Google 使用者資訊:", payload);
+
+    // 在這裡，你可以將使用者資訊存入資料庫或執行其他操作
+    res.json({ status: "成功", user: payload });
+  } catch (error) {
+    console.error("驗證失敗:", error);
+    res.status(401).json({ status: "失敗", message: "Token 驗證失敗" });
+  }
+});
 
 app.post("/login", express.json(), async (req, res) => {
   const { email, password } = req.body;

@@ -1,8 +1,8 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import Carousel from "../components/carousel/Carousel";
+import Carousel from "../components/header/Carousel/Carousel";
 import FreeComic from "../components/freeComic/FreeComic";
-import HolidayBookList from "../components/Recommended/BookList";
+import HolidayBookList from "../components/recommended/BookList";
 import Week from "../components/latestDayUpDates/Week";
 import Div from "../components/common/Div";
 import News from "../components/newAnnouncement/News";
@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import useGetFetch from "../hook/useGetFetch";
 import Get from "../URL/Get.json";
 import Icon from "../components/common/Icon";
-
+import image from "../data/image.json";
 const weekDay = [
   "星期一",
   "星期二",
@@ -40,7 +40,7 @@ const Index = () => {
 
   return (
     <div className="flex  flex-col justify-center items-center">
-      <Carousel />
+      <Carousel data={image} />
       <div className="bg-gray-900 p-4 w-full  text-center ">
         {weekDay.map((item, index) => {
           return (

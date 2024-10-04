@@ -81,20 +81,14 @@ const ComicInfo = () => {
       </div>
       <div className="text-white mt-10 flex w-2/3 ">
         <div className="w-2/3">
-          <div className="flex">
+          <div className="flex mb-2">
             <p>共10話</p>
             <p className="ms-auto">排列依照：由舊到新</p>
           </div>
-          <ul>
-            <li className="mt-5">
-              <ComicList />
-            </li>
-            <li className="mt-5">
-              <ComicList />
-            </li>
-            <li className="mt-5">
-              <ComicList />
-            </li>
+          <ul className="flex flex-col gap-5">
+            <ComicList />
+            <ComicList />
+            <ComicList />
           </ul>
         </div>
         <div className="w-1/3 ms-5">

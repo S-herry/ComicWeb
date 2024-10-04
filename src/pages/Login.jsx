@@ -1,14 +1,18 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef } from "react";
 import Input from "../components/common/Input";
 import Button from "../components/common/Button";
 import Post from "../URL/Post.json";
 import usePostFetch from "../hook/usePostFetch";
-import { UsersContent } from "../context/user/UserContent";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { userAction } from "../store/userSlice";
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 const Login = () => {
-  const { loggedIn } = useContext(UsersContent);
   const loginRef = useRef(null);
+  const token = document.cookie.split("token=")[1]?.split(";")[0];
   const [loginDate, fetchLoginDate] = usePostFetch(null);
+  const isLogin = useSelector((state) => state.user.isLogin);
+  const dispatch = useDispatch();
 
   function handleLogin(event) {
     event.preventDefault();
@@ -20,29 +24,51 @@ const Login = () => {
       data: data,
     });
   }
+
   useEffect(() => {
-    if (loginDate != undefined || loginDate != null) {
+    if (loginDate != null) {
       document.cookie = `token=Bearer ${loginDate.token}; path=/;`;
-      if (loginDate.user) {
-        window.location.href = "http://localhost:9000/";
-      }
+      dispatch(userAction.changeIsLogin());
+      window.location.href = "http://localhost:9000/";
+    } else if (token != null) {
+      dispatch(userAction.changeIsLogin());
+      window.location.href = "http://localhost:9000/";
     }
   }, [loginDate]);
 
-  useEffect(() => {
-    if (loggedIn) {
-      window.location.href = "http://localhost:9000/";
-    }
-  }, [loggedIn]);
+  const handleSuccess = (credentialResponse) => {
+    console.log("ID Token: ", credentialResponse.credential);
 
+    // 這裡你可以將取得的 credential（即 id_token）發送到後端驗證
+    fetch("http://127.0.0.1:3000/auth/google", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id_token: credentialResponse.credential }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log("後端驗證成功:", data))
+      .catch((err) => console.error("後端錯誤:", err));
+  };
+
+  const handleError = () => {
+    console.log("登入失敗");
+  };
   return (
     <>
-      {!loggedIn ? (
+      {!isLogin ? (
         <div className="text-xl  flex flex-col justify-center items-center h-screen   ">
           <div className="bg-white/50 w-1/3 p-5 rounded-lg flex flex-col justify-center items-center shadow-2xl shadow-white">
             <h1 className="text-4xl bg-yellow-200 p-5 rounded-lg my-10 text-black border-2 font-black  text-center ">
               漫畫平台登入頁面
             </h1>
+            <GoogleOAuthProvider clientId="628247640283-bmpcl3ro32alr1jmg04v6irpdoc3s8bg.apps.googleusercontent.com">
+              <div className="App">
+                <h2>Google 登入</h2>
+                <GoogleLogin onSuccess={handleSuccess} onError={handleError} />
+              </div>
+            </GoogleOAuthProvider>
             <form
               ref={loginRef}
               action={Post.login}

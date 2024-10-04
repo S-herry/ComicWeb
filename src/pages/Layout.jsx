@@ -1,18 +1,24 @@
+import { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import Button from "../components/common/Button";
-import { useContext, useEffect, useState } from "react";
-import ComicTags from "../components/tabs/ComicTags";
+import ComicTags from "../components/header/tabs/ComicTags";
 import Footer from "../components/Footer/Footer";
-import { UsersContent } from "../context/user/UserContent";
 import Input from "../components/common/Input";
-
+import { useDispatch, useSelector } from "react-redux";
+import { userAction } from "../store/userSlice";
+import useGetFetch from "../hook/useGetFetch";
+import URL from "../URL/Get.json";
 const linkStyle =
   "no-underline me-5 text-white font-bold  hover:border-yellow-500 pb-1  b-4  border-b-4";
 
 const Layout = () => {
-  const { userData, signOut, loggedIn } = useContext(UsersContent);
+  const dispatch = useDispatch();
+  const [userInfo, fetchGetUser] = useGetFetch(null);
   const [actionTab, setActionTab] = useState("漫畫");
   const [hidden, setHidden] = useState(false);
+
+  const user = useSelector((state) => state.user.user);
+  const isLogin = useSelector((state) => state.user.isLogin);
 
   function onMouseEnter() {
     setHidden(true);
@@ -21,9 +27,19 @@ const Layout = () => {
     setHidden(false);
   }
 
+  useEffect(() => {
+    fetchGetUser({ url: URL.user });
+  }, []);
+
+  useEffect(() => {
+    if (userInfo) {
+      dispatch(userAction.setUserData(userInfo));
+    }
+  }, [userInfo]);
+
   const LoginButtons = () => (
     <>
-      {loggedIn && userData.user ? (
+      {isLogin && user.user ? (
         <div className="flex justify-center items-center">
           <Link to="/user">
             <img
@@ -33,10 +49,10 @@ const Layout = () => {
           </Link>
 
           <p className="ms-3 text-3xl rounded-md text-white">
-            {userData.userData.name}
+            {user.userData.name}
           </p>
           <Button
-            onClick={signOut}
+            onClick={() => dispatch(userAction.signOut())}
             className="text-black border-2 ms-3 px-2 py-1 rounded-md bg-yellow-200"
           >
             登出
@@ -110,7 +126,7 @@ const Layout = () => {
           </button>
           <div className="hidden w-full md:block md:w-auto ">
             <ul className=" flex flex-col md:p-0 items-center md:flex-row md:space-x-8 ">
-              <LoginButtons Data={userData} />
+              <LoginButtons Data={user} />
             </ul>
           </div>
         </div>
