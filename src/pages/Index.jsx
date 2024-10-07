@@ -8,7 +8,7 @@ import Div from "../components/common/Div";
 import News from "../components/newAnnouncement/News";
 import Button from "../components/common/Button";
 import ShortVideo from "../components/shortVideo/ShortVideo";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useGetFetch from "../hook/useGetFetch";
 import Get from "../URL/Get.json";
 import Icon from "../components/common/Icon";

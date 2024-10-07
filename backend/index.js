@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const session = require("express-session"); // 引入 express-session
 const { OAuth2Client } = require("google-auth-library");
 const DB = require("./DB");
 const app = express();
@@ -8,30 +7,18 @@ const hostname = "127.0.0.1";
 const port = 3000;
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const userRoutes = require("./users/user");
+const comicRoutes = require("./comic/comic");
 
 app.use(express.json());
 app.use(cors());
-const CLIENT_ID =
-  "628247640283-bmpcl3ro32alr1jmg04v6irpdoc3s8bg.apps.googleusercontent.com";
-const client = new OAuth2Client(CLIENT_ID);
+app.use("/user", userRoutes);
+app.use("/comic", comicRoutes);
 
-const authenticateJWT = (req, res, next) => {
-  // 从请求头中获取 Token
-  const token = req.headers["authorization"]?.split(" ")[1];
-  if (token == undefined || token == null)
-    return res.json({ user: false, error: "No token provided" });
-
-  jwt.verify(token, "chick", (err, user) => {
-    if (err) {
-      return res.json({ user: false, error: "Forbidden" }); // 返回更具体的错误信息
-    }
-    req.user = user;
-    next();
-  });
-};
-
-// 使用 POST 請求來處理 Google OAuth 認證
 app.post("/auth/google", async (req, res) => {
+  const CLIENT_ID =
+    "628247640283-bmpcl3ro32alr1jmg04v6irpdoc3s8bg.apps.googleusercontent.com"; // Google OAuth Client ID
+  const client = new OAuth2Client(CLIENT_ID);
   const { id_token } = req.body;
 
   try {
@@ -39,12 +26,42 @@ app.post("/auth/google", async (req, res) => {
       idToken: id_token,
       audience: CLIENT_ID,
     });
+    const payload = ticket.getPayload(); // 取得google 資料
+    const { name, email, sub } = payload; // 從 Google Payload 取得必要資訊
+    const existingUser = await DB.User.findOne({ email: email }); // 查找是否有相同 email 的用戶
 
-    const payload = ticket.getPayload();
-    console.log("Google 使用者資訊:", payload);
+    if (!existingUser) {
+      // 如果使用者不存在，創建新用戶
+      const saltRounds = 10;
+      const hashedPassword = await bcrypt.hash(sub, saltRounds); // 使用 Google 的 `sub` 做為密碼哈希
+      const newUser = await DB.User.create({
+        name,
+        email,
+        password: hashedPassword,
+      });
 
-    // 在這裡，你可以將使用者資訊存入資料庫或執行其他操作
-    res.json({ status: "成功", user: payload });
+      // 為新用戶生成 JWT token
+      const token = jwt.sign(
+        { userId: newUser.id, name: newUser.name, email: newUser.email },
+        "chick",
+        { expiresIn: "1h" }
+      );
+
+      return res.json({ repeat: false, token: token }); // 回應新註冊的用戶
+    } else {
+      // 如果使用者已存在，直接生成 token
+      const token = jwt.sign(
+        {
+          userId: existingUser.id,
+          name: existingUser.name,
+          email: existingUser.email,
+        },
+        "chick",
+        { expiresIn: "1h" }
+      );
+
+      return res.json({ repeat: true, token: token }); // 回應已存在的用戶
+    }
   } catch (error) {
     console.error("驗證失敗:", error);
     res.status(401).json({ status: "失敗", message: "Token 驗證失敗" });
@@ -53,13 +70,11 @@ app.post("/auth/google", async (req, res) => {
 
 app.post("/login", express.json(), async (req, res) => {
   const { email, password } = req.body;
-
   try {
     const user = await DB.User.findOne({
       where: { email: email },
     });
 
-    // 檢查是否有使用者存在
     if (user.length === 0) {
       return res.status(401).json({ user: false, token: null });
     }
@@ -115,59 +130,7 @@ app.post("/register", express.json(), async (req, res) => {
   }
 });
 
-app.get("/user", authenticateJWT, (req, res) => {
-  try {
-    res.json({ user: true, userData: req.user });
-  } catch (err) {
-    res.json({ user: false });
-  }
-});
-
-app.get("/comic/:id", authenticateJWT, async (req, res) => {
-  let id = req.params.id;
-  try {
-    const comic = await DB.Comic.findByPk(id, {
-      include: {
-        model: DB.ComicList,
-        where: { comicId: id },
-      },
-    });
-
-    if (comic) {
-      res.json(comic);
-      if (comic.ComicLists.length > 0) {
-        comic.ComicLists[0];
-      } else {
-        res.json("ComicList found");
-      }
-    } else {
-      res.json("Comic not found");
-    }
-  } catch (error) {
-    res.json({ "Error fetching specific comic and list:": error });
-  }
-});
-
-app.get("/comiclist/:number", async (req, res) => {
-  try {
-    const number = parseInt(req.params.number, 10);
-
-    const randomComics = await DB.Comic.findAll({
-      limit: number,
-      order: [[DB.sequelize.fn("RAND")]],
-      include: {
-        model: DB.ComicList,
-        attributes: ["description"], // 确保这些字段在 ComicList 模型中存在
-      },
-    });
-
-    res.json(randomComics);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Server Error");
-  }
-});
-
+// 公告
 app.get("/anno/:number", async (req, res) => {
   try {
     const number = parseInt(req.params.number, 10);

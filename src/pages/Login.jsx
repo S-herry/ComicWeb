@@ -37,24 +37,18 @@ const Login = () => {
   }, [loginDate]);
 
   const handleSuccess = (credentialResponse) => {
+    console.log("credentialResponse" + credentialResponse);
     console.log("ID Token: ", credentialResponse.credential);
-
-    // 這裡你可以將取得的 credential（即 id_token）發送到後端驗證
-    fetch("http://127.0.0.1:3000/auth/google", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ id_token: credentialResponse.credential }),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log("後端驗證成功:", data))
-      .catch((err) => console.error("後端錯誤:", err));
+    fetchLoginDate({
+      url: Post.googleLogin,
+      data: { id_token: credentialResponse.credential },
+    });
   };
 
   const handleError = () => {
     console.log("登入失敗");
   };
+
   return (
     <>
       {!isLogin ? (
@@ -63,12 +57,6 @@ const Login = () => {
             <h1 className="text-4xl bg-yellow-200 p-5 rounded-lg my-10 text-black border-2 font-black  text-center ">
               漫畫平台登入頁面
             </h1>
-            <GoogleOAuthProvider clientId="628247640283-bmpcl3ro32alr1jmg04v6irpdoc3s8bg.apps.googleusercontent.com">
-              <div className="App">
-                <h2>Google 登入</h2>
-                <GoogleLogin onSuccess={handleSuccess} onError={handleError} />
-              </div>
-            </GoogleOAuthProvider>
             <form
               ref={loginRef}
               action={Post.login}
@@ -78,7 +66,7 @@ const Login = () => {
             >
               <Input label="信箱" type="email" className="mb-3" name="email" />
               <Input label="密碼" name="password" className="mb-3" />
-              <div className="flex">
+              <div className="flex mb-2">
                 <Button
                   type="submit"
                   className=" bg-yellow-300 border-2 me-5 mt-5 px-5 py-2 text-white rounded-md"
@@ -92,17 +80,25 @@ const Login = () => {
                   註冊
                 </Link>
               </div>
-
-              <span
-                className={` ${
-                  loginDate != null && !loginDate.user
-                    ? "opacity-100"
-                    : "opacity-0"
-                } text-red-700 font-black mt-5 bg-white rounded-md px-3 py-2`}
-              >
-                帳號或密碼錯誤
-              </span>
             </form>
+            <GoogleOAuthProvider clientId="628247640283-bmpcl3ro32alr1jmg04v6irpdoc3s8bg.apps.googleusercontent.com">
+              <div className="App">
+                <GoogleLogin
+                  onSuccess={handleSuccess}
+                  onError={handleError}
+                  text="signin"
+                />
+              </div>
+            </GoogleOAuthProvider>
+            <span
+              className={` ${
+                loginDate != null && !loginDate.user
+                  ? "opacity-100"
+                  : "opacity-0"
+              } text-red-700 font-black mt-5 bg-white rounded-md px-3 py-2`}
+            >
+              帳號或密碼錯誤
+            </span>
           </div>
         </div>
       ) : null}

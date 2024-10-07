@@ -7,7 +7,9 @@ const userSlice = createSlice({
   reducers: {
     setUserData(state, action) {
       state.user = action.payload;
-      state.isLogin = true;
+      if (action.payload != null && action.payload.user) {
+        state.isLogin = true;
+      }
     },
     signOut(state) {
       state.isLogin = false;
