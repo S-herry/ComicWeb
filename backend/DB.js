@@ -71,7 +71,7 @@ ComicList.belongsTo(Comic, {
 
 // 確認資料是否新建
 sequelize
-  .sync({ alter: true })
+  .sync({ alter: true }) // , force: true
   .then(() => {
     console.log("模型同步完成，若有變更則已更新表結構");
   })

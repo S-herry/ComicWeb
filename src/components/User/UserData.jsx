@@ -78,12 +78,12 @@ const UserData = ({ userDate }) => {
             userDate != null && userDate.userData ? userDate.userData.name : ""
           }
         />
-        <UserInput
+        {/* <UserInput
           label="生日"
           changeData={changeData}
           name="birthday"
           userDate="088-12-24"
-        />
+        /> */}
         {transitions(
           (props, item) =>
             item && (
