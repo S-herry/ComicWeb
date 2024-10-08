@@ -6,6 +6,7 @@ import NotFound from "./pages/NotFound";
 import ComicInfo from "./components/comicInfo/ComicInfo";
 import Register from "./pages/Register";
 import User from "./pages/User";
+import ComicSet from "./setting/ComicSet";
 const router = createBrowserRouter([
   {
     element: <Layout />,
@@ -37,6 +38,14 @@ const router = createBrowserRouter([
       {
         path: "*",
         element: <NotFound />,
+      },
+    ],
+  },
+  {
+    children: [
+      {
+        path: "/setting/comic",
+        element: <ComicSet />,
       },
     ],
   },

@@ -1,11 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initComicState = {};
+const initComicState = { comicInfo: {}, lastRecord: {} };
 
 const comicSlice = createSlice({
   name: "comic",
   initialState: initComicState,
-  reducers: {},
+  reducers: {
+    sendComicInfo(state, action) {
+      state.comicInfo = action.payload;
+    },
+  },
 });
 
 export const comicAction = comicSlice.actions;

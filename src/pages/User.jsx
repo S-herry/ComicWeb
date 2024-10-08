@@ -11,7 +11,6 @@ const tabList = ["帳戶", "作品收藏", "瀏覽紀錄", "我的留言"];
 
 const User = () => {
   const user = useSelector((state) => state.user.user);
-  const isLogin = useSelector((state) => state.user.isLogin);
   const [activeTab, setActiveTab] = useState("帳戶");
 
   return (
@@ -46,8 +45,10 @@ const User = () => {
           </div>
         </section>
       ) : (
-        <div className=" bg-white p-5 text-center h-full">
-          <p>請登入會員</p>
+        <div className=" p-5  flex w-full text-center justify-center ">
+          <p className="bg-white/85 px-5 py-24 rounded-md nt-auto mt-28 w-2/4">
+            請登入會員
+          </p>
         </div>
       )}
     </>

@@ -11,6 +11,7 @@ module.exports = (env, argv) => {
     devtool: "source-map",
     output: {
       filename: "js/main.js",
+      publicPath: "/",
       path: path.resolve(__dirname, "./build"),
       clean: true,
       chunkFilename: "js/main.js",
